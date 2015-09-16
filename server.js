@@ -8,3 +8,5 @@ var api_server = require('./lib/api-server.js');
 
 // Start API server
 api_server.startServer();
+
+//api_server.stopServer();

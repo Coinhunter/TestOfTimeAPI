@@ -18,4 +18,6 @@ module.exports = {
   // This string should never change
   hashid_salt: 'The Problem Is Not The Problem'
 
+  //Base64 authorization header: Basic dGVzdG9mdGltZUB0aW1lLm5vdzpwYXNzd29yZA==
+
 };

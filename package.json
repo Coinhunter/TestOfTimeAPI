@@ -1,0 +1,22 @@
+{
+  "name": "TestOfTimeAPI",
+  "version": "0.0.1",
+  "description": "API",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=development node server.js",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Coinhunter/TestOfTimeAPI.git"
+  },
+  "author": "Coinhunter",
+  "dependencies": {
+    "config": "^1.16.0",
+    "mongoose": "^4.1.7",
+    "restify": "^4.0.2",
+    "bcrypt": "^0.8.5",
+    "hashids": "1.0.2",
+  }
+}

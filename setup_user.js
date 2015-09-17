@@ -40,3 +40,10 @@ convertParams.convertParamsToUser(
 		});
 	}
 });
+
+/*
+{"id": "TestOfTimeAdminID2",
+"name": "admin2",
+"email": "testoftime2@time.now",
+"password": "password"}
+*/

@@ -1,8 +1,8 @@
-var cardCreator = require('./lib/handlers/card-create.js'),
+var cardCreator = require('../../lib/handlers/card-create.js'),
 	config = require('config'),
 	mongoose = require('mongoose'),
-	CardModel = require('./lib/models/card.js'),
-	db = require('./lib/db.js');
+	CardModel = require('../../lib/models/card.js'),
+	db = require('../../lib/db.js');
 
 cardCreator.convertParamsToCard(
 {

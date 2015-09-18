@@ -14,9 +14,15 @@ You also have to be running MongoDB locally:
 	
 	$ sudo mongod
 
-In order to make calls to the API basic authentication is required. To set up a user with username: `testoftime@time.now` and password: `password` run setup_user.js. This means that the headers should include one `Authorization` entry with value `Basic dGVzdG9mdGltZUB0aW1lLm5vdzpwYXNzd29yZA==`. It also needs to have a `Content-Type` header with `application/json` to work. Note: This is only to set up a user with which to play around.
+In order to make calls to the API basic authentication is required. To create a user with username: `testoftime@time.now` and password: `password` run create_user.js. This means that the headers should include one `Authorization` entry with value `Basic dGVzdG9mdGltZUB0aW1lLm5vdzpwYXNzd29yZA==`. It also needs to have a `Content-Type` header with `application/json` to work. Note: This is only to set up a user with which to play around.
 	
-	$ node setup_user.js
+	$ node create_user.js
+
+To populate the database with some initial cards to use:
+
+	$ node card_loader.js
+
+This uses the cards.json file in the res folder. Make sure that the data is proper json encoded by running through this: http://jsonlint.com/ 
 
 To start the server:
 

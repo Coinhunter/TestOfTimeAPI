@@ -14,6 +14,11 @@ module.exports = {
     uri: 'mongodb://localhost/testoftime'
   },
 
+  // Logging configuration
+  logging: {
+    level: 'info'
+  },  
+
   // Salt string used to obfuscate ids
   // This string should never change
   hashid_salt: 'The Problem Is Not The Problem'

@@ -35,4 +35,3 @@ cardCreator.convertParamsToCard(
 		});
 	}
 });
-

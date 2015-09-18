@@ -1,4 +1,4 @@
-# TestOfTime API
+# Test of Time API
 
 ## Purpose
 
@@ -23,5 +23,32 @@ To start the server:
 	$ node server.js
 
 
-## API Documentation
+## API Endpoints
+#### GET  [ / ]
+Returns an empty object. Authentication is not required for this. Use this to see if the service is up.
 
+### Users
+#### GET  [ /users ]
+Returns array of existing users.
+
+#### POST [ /users ]
+Create new user. Example request body (all fields are required).
+
+```json 
+{
+	"id": "userid",
+	"name": "name of user",
+	"email": "testoftime@time.now",
+	"password": "password"
+}
+```
+### Cards
+#### POST [ /cards ]
+Create new card. Example request body (all fields are required).
+
+```json 
+{
+	"question": "Question that has a year as answer",
+	"year": 1492
+}
+```

@@ -18,6 +18,12 @@ In order to make calls to the API basic authentication is required. To create a 
 	
 	$ node create_user.js
 
+To populate the database with some initial cards to use:
+
+	$ node card_loader.js
+
+This uses the cards.json file in the res folder. Make sure that the data is proper json encoded by running through this: http://jsonlint.com/ 
+
 To start the server:
 
 	$ node server.js

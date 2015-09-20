@@ -55,10 +55,13 @@ Create new card. Example request body (all fields are required).
 ```json 
 {
 	"question": "Question that has a year as answer",
-	"year": 1492
+	"year": 1492,
+	"category": "examplecategory"
 }
 ```
 
-#### GET  [ /cards]
-Get the first 100 cards, assuming that you have 100 cards.
+#### GET  [ /cards ]
+Get the first 100 cards.
 
+#### GET  [ /cards/:category ]
+Get the first 100 cards in :category.

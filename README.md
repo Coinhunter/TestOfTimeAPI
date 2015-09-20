@@ -58,3 +58,7 @@ Create new card. Example request body (all fields are required).
 	"year": 1492
 }
 ```
+
+#### GET  [ /cards]
+Get the first 100 cards, assuming that you have 100 cards.
+

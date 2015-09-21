@@ -7,7 +7,8 @@ var cardCreator = require('./lib/handlers/card-create.js'),
 cardCreator.convertParamsToCard(
 {
 	question: 'The RMS Titanic collides with an iceberg and sinks, taking 1500 people with it.',
-	year: 1912
+	year: 1912,
+	category: 'disasters'
 }, function(err, returned_card){
 	if(err){
 		console.log('Something went wrong: ' + err);

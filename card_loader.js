@@ -13,7 +13,8 @@ cardArray.forEach(function(card) {
 	cardCreator.convertParamsToCard(
 	{
 		question: card.question,
-		year: card.year
+		year: card.year,
+		category: card.category
 	}, function(err, returned_card){
 		if(err){
 			console.log('Something went wrong: ' + err);

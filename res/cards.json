@@ -1,14 +1,17 @@
 [
     {
         "question": "This is question 1",
-        "year": 1
+        "year": 1,
+        "category": "category1"
     },
     {
         "question": "This is question 2",
-        "year": 2
+        "year": 2,
+        "category": "category2"
     },
     {
         "question": "This is question 3",
-        "year": 3
+        "year": 3,
+        "category": "category3"
     }
 ]

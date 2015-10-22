@@ -9,6 +9,11 @@ module.exports = {
     port: 3000
   },
 
+  admin: {
+    name: 'TestOfTimeAdmin',
+    port: 8080
+  },
+
   // Database options
   mongo: {
     uri: 'mongodb://localhost/testoftime'

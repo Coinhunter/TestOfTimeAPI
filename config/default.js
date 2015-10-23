@@ -14,6 +14,10 @@ module.exports = {
     port: 8080
   },
 
+  secrets: {
+    cookie: 'thisshouldbehardtoguess'
+  },
+
   // Database options
   mongo: {
     uri: 'mongodb://localhost/testoftime'

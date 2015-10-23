@@ -15,15 +15,23 @@
   "author": "Coinhunter",
   "dependencies": {
     "bcrypt": "^0.8.5",
+    "body-parser": "^1.14.1",
     "browserify-middleware": "^7.0.0",
     "bunyan": "^1.5.1",
     "config": "^1.16.0",
+    "cookie-parser": "^1.4.0",
+    "errorhandler": "^1.4.2",
     "express": "^4.13.3",
+    "express-session": "^1.11.3",
     "fs": "^0.0.2",
     "hashids": "1.0.2",
+    "http": "0.0.0",
     "less-middleware": "^2.0.1",
+    "method-override": "^2.3.5",
     "mongoose": "^4.1.7",
+    "morgan": "^1.6.1",
     "path": "^0.12.7",
-    "restify": "^4.0.2"
+    "restify": "^4.0.2",
+    "serve-static": "^1.10.0"
   }
 }

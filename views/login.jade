@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Log in
+  form(action='/login', method='POST')
+    .form-group
+      label(for='email') E-mail
+      input.form-control(type='text', id='email', name='email', autofocus)
+    .form-group
+      label(for='password') Password
+      input.form-control(type='password', id='password', name='password')
+    .btn-toolbar
+      button.btn.btn-primary(type='submit') Log in

@@ -1,26 +1,41 @@
 {
-    "name": "TestOfTimeAPI",
-    "version": "0.0.1",
-    "description": "API",
-    "private": true,
-    "main": "server.js",
-    "scripts": {
-        "start-api": "SERVER_TYPE='api' node server.js",
-        "start-admin": "SERVER_TYPE='admin' node server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/Coinhunter/TestOfTimeAPI.git"
-    },
-    "author": "Coinhunter",
-    "dependencies": {
-        "config": "^1.16.0",
-        "mongoose": "^4.1.7",
-        "restify": "^4.0.2",
-        "bcrypt": "^0.8.5",
-        "hashids": "1.0.2",
-        "bunyan": "^1.5.1",
-        "path": "^0.12.7",
-        "fs": "^0.0.2"
-    }
+  "name": "TestOfTimeAPI",
+  "version": "0.0.1",
+  "description": "API",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start-api": "SERVER_TYPE='api' node server.js",
+    "start-admin": "SERVER_TYPE='admin' node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Coinhunter/TestOfTimeAPI.git"
+  },
+  "author": "Coinhunter",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.14.1",
+    "browserify-middleware": "^7.0.0",
+    "bunyan": "^1.5.1",
+    "config": "^1.16.0",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.0",
+    "errorhandler": "^1.4.2",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "fs": "^0.0.2",
+    "hashids": "1.0.2",
+    "http": "0.0.0",
+    "jade": "^1.11.0",
+    "less-middleware": "^2.0.1",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.1.7",
+    "morgan": "^1.6.1",
+    "passport": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "restify": "^4.0.2",
+    "serve-static": "^1.10.0"
+  }
 }

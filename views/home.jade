@@ -1,6 +1,17 @@
-if !user
-	p Welcome! Please 
-		a(href='/login') log in
-else 
-	p Hello #{user.name}. View your 
-		a(href='/profile') profile.
+extends layout
+
+block content
+	if !user    
+		h1 Log in   
+		form(action='/login', method='POST')
+			.form-group
+				label(for='email') E-mail
+				input.form-control(type='text', id='email', name='email', autofocus)
+			.form-group
+				label(for='password') Password
+				input.form-control(type='password', id='password', name='password')
+			.btn-toolbar
+				button.btn.btn-primary(type='submit') Log in
+	else 
+		p Hello #{user.name}. View your 
+			a(href='/profile') profile.

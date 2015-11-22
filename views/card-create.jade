@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Create card
+  form.prevent-enter-submit(action='/cards/new', method='POST')
+    .form-group
+      label(for='question') Question
+      input.form-control(type='text', id='question', name='question')
+
+    .form-group
+      label(for='year') Year
+      input.form-control(type='text', id='year', name='year')
+
+    .form-group
+      label(for='category') Category
+      input.form-control(type='text', id='category', name='category')
+
+    button.btn.btn-primary(type='submit') Create Card

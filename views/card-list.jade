@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .view-header.row
+    h1 Manage Cards
+
+  if cards.length <= 0
+    .alert.alert-info No cards yet.
+  else
+    table.table.table-hover
+      thead
+        table-hover
+          th.sortable(data-default-direction='1') Question
+          th.sortable(data-default-direction='1') Year
+          th.sortable(data-default-direction='1') Category
+      tbody
+        each card in cards
+          tr(class= row_class)
+            td
+              a(href='/cards/#{card._id}') #{card.question}
+            td #{card.year}
+            td #{card.category}

@@ -2,38 +2,38 @@ doctype html
 html
   head
     title #{page_title ? page_title + '| ' : ''} Test of Time
-    link(rel='stylesheet', href='/css/style.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
     block stylesheets
   body
     if locals.user
       nav.navbar.navbar-default.navbar-static-top(role='navigation')
         .container
           .navbar-header
-            a.navbar-brand(href='/guides') Resguide Admin
+            a.navbar-brand(href='/') Test of Time Admin
           ul.nav.navbar-nav
             li
-              a(href='/guides') Hantera mobila guider
+              a(href='/cards') Manage Cards
             li
-              a(href='/guides/new') Skapa guide
-            if user.role == 'admin' || user.role == 'editor'
-              li
-                a(href='/users') Hantera användare
+              a(href='/cards/new') Create card
+            li
+              a(href='/users') Manage users
 
           ul.nav.navbar-nav.navbar-right
             li.dropdown
               a.dropdown-toggle(href='#', data-toggle='dropdown')
                 i.glyphicon.glyphicon-user
-                |  #{format_role(user.role)}: #{user.name} 
+                |  #{user.name} 
                 b.caret
               ul.dropdown-menu
                 li
-                  a(href='/users/#{user._id}') Konto
+                  a(href='/users/#{user._id}') Account
                 li.divider
                 li
-                  a(href='/logout') Logga ut
+                  a(href='/logout') Log out!
 
     .container
       block content
+
 
     script(src='https://code.jquery.com/jquery-2.0.3.min.js')
     script(src='https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js')

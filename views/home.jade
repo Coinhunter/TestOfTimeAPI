@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	if !user
+		link(rel='stylesheet', href='/css/signin.css')       
+		form.form-signin(action='/login', method='POST')
+			h2.form-signin-heading Sign in
+			label.sr-only(for='email') E-mail
+			input.form-control(type='email', id='email', name='email', autofocus)
+			label.sr-only(for='password') Password
+			input.form-control(type='password', id='password', name='password')
+			.btn-toolbar
+				button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+	else 
+		p Hello #{user.name}. View your 
+			a(href='/profile') profile.

@@ -13,6 +13,7 @@ block content
           th.sortable(data-default-direction='1') Question
           th.sortable(data-default-direction='1') Year
           th.sortable(data-default-direction='1') Category
+          th(data-default-direction='1')
       tbody
         each card in cards
           tr(class= row_class)
@@ -20,3 +21,6 @@ block content
               a(href='/cards/#{card._id}') #{card.question}
             td #{card.year}
             td #{card.category}
+            td 
+              a(href='/cards/delete/#{card._id}')
+                span.glyphicon.glyphicon-remove(aria-hidden='true')

@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  
+  .view-header.row.col-md-10.col-md-offset-1
+    h1 Manage Users
+
+    .alert.alert-warning.alert-dismissible(role='alert')
+      button.close(type='button', data-dismiss='alert', aria-label='Close')
+        span(aria-hidden='true') ×
+      strong Warning!
+      |  Do not delete yourself. You will not be able to log back in.
+
+
+  .row.col-md-10.col-md-offset-1
+      table.table.table-hover
+        thead
+          table-hover
+            th.sortable(data-default-direction='1') Username
+            th.sortable(data-default-direction='1') Email
+            th(data-default-direction='1')
+        tbody
+          each user in users
+            tr(class= row_class)
+              td #{user.name}
+              td #{user.email}
+              td
+                a.pull-right(href='/user/delete/#{user._id}')
+                  button.btn.btn-danger.btn-xs(type='button')
+                    span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete "#{user.name}"')

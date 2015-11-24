@@ -1,22 +1,26 @@
 extends layout
 
 block content
-  .view-header.row
+
+  
+  .view-header.row.col-md-10.col-md-offset-1
     h1 Manage Categories
 
-  if categories.length <= 0
-    .alert.alert-info No categories yet.
-  else
-    table.table.table-hover
-      thead
-        table-hover
-          th.sortable(data-default-direction='1') Category
-          th(data-default-direction='1')
-      tbody
-        each category in categories
-          tr(class= row_class)
-            td
-              a(href='/category/#{category}') #{category}
-            td 
-              a(href='/category/delete/#{category}')
-                span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title="Delete this category")
+  .row.col-md-10.col-md-offset-1
+    if categories.length <= 0
+      .alert.alert-info No categories yet.
+    else
+      table.table.table-hover
+        thead
+          table-hover
+            th.sortable(data-default-direction='1') Category
+            th(data-default-direction='1')
+        tbody
+          each category in categories
+            tr(class= row_class)
+              td
+                a(href='/category/#{category}') #{category}
+              td
+                a.pull-right(href='/category/delete/#{category}')
+                  button.btn.btn-danger.btn-xs(type='button')
+                    span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete "#{category}"')

@@ -22,5 +22,7 @@ block content
             td #{card.year}
             td #{card.category}
             td 
-              a(href='/cards/delete/#{card._id}')
-                span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title="Delete this card")
+              a.pull-right(href='/cards/delete/#{card._id}')
+                button.btn.btn-danger.btn-xs(type='button')
+                  span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete this card')
+

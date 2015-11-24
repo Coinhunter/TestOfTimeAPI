@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .view-header.row
+    h1 Manage Categories
+
+  if categories.length <= 0
+    .alert.alert-info No categories yet.
+  else
+    table.table.table-hover
+      thead
+        table-hover
+          th.sortable(data-default-direction='1') Category
+          th(data-default-direction='1')
+      tbody
+        each category in categories
+          tr(class= row_class)
+            td
+              a(href='/category/#{category}') #{category}
+            td 
+              a(href='/category/delete/#{category}')
+                span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title="Delete this category")

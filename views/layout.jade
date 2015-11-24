@@ -12,24 +12,49 @@ html
           .navbar-header
             a.navbar-brand(href='/') Test of Time Admin
           ul.nav.navbar-nav
-            li
-              a(href='/cards') Manage Cards
-            li
-              a(href='/cards/new') Create Card
-            li
-              a(href='/categories') Manage Categories
-            li
-              a(href='/category/new') Create Category
-            li
-              a(href='/users') Manage Users
-            li
-              a(href='/user/new') Create User
+
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.glyphicon.glyphicon-envelope
+                |   Cards
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='/cards') Manage Cards
+                li.divider
+                li
+                  a(href='/cards/new') Create Card
+
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.glyphicon.glyphicon-tag
+                |   Categories
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='/categories') Manage Categories
+                li.divider
+                li
+                  a(href='/category/new') Create Category
+
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.glyphicon.glyphicon-user
+                |   Users
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='/users') Manage Users
+                li.divider
+                li
+                  a(href='/user/new') Create User
+
 
 
           ul.nav.navbar-nav.navbar-right
             li.dropdown
               a.dropdown-toggle(href='#', data-toggle='dropdown')
-                i.glyphicon.glyphicon-user
+                i.glyphicon.glyphicon-home
                 |  #{user.name} 
                 b.caret
               ul.dropdown-menu

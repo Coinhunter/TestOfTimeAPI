@@ -19,10 +19,10 @@ block content
         tbody
           each card in cards
             tr(class= row_class)
-              td
-                a(href='/cards/#{card._id}') #{card.question}
+              td #{card.question}
               td #{card.year}
-              td #{card.category}
+              td 
+                a(href='/category/#{card.category}', data-toggle="tooltip", title='View all #{card.category} cards') #{card.category}
               td 
                 a.pull-right(href='/cards/delete/#{card._id}')
                   button.btn.btn-danger.btn-xs(type='button')

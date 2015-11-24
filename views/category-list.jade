@@ -19,7 +19,7 @@ block content
           each category in categories
             tr(class= row_class)
               td
-                a(href='/category/#{category}') #{category}
+                a(href='/category/#{category}', data-toggle="tooltip", title='View all #{category} cards') #{category}
               td
                 a.pull-right(href='/category/delete/#{category}')
                   button.btn.btn-danger.btn-xs(type='button')

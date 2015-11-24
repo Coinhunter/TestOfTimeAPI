@@ -1,24 +1,25 @@
 extends layout
 
 block content
-  .view-header.row
+  .row.col-md-10.col-md-offset-1
     h1 Create Card
-    
-  form.prevent-enter-submit(action='/cards/new', method='POST')
-    .form-group
-      label(for='question') Question
-      input.form-control(type='text', id='question', name='question')
 
-    .form-group
-      label(for='year') Year
-      input.form-control(type='text', id='year', name='year')
+  .row.col-md-10.col-md-offset-1    
+    form.prevent-enter-submit(action='/cards/new', method='POST')
+      .form-group
+        label(for='question') Question
+        input.form-control(type='text', id='question', name='question')
 
-    .form-group
-      label Roll
-      each category in categories
-        .radio
-          label(for='category-#{category}')
-            input(type='radio', name='category', id='category-#{category}', value=category)
-            | #{category}
+      .form-group
+        label(for='year') Year
+        input.form-control(type='text', id='year', name='year')
 
-    button.btn.btn-primary(type='submit') Create Card
+      .form-group
+        label Roll
+        each category in categories
+          .radio
+            label(for='category-#{category}')
+              input(type='radio', name='category', id='category-#{category}', value=category)
+              | #{category}
+
+      button.btn.btn-primary(type='submit') Create Card

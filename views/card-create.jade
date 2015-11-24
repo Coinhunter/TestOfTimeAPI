@@ -1,7 +1,9 @@
 extends layout
 
 block content
-  h1 Create card
+  .view-header.row
+    h1 Create Card
+    
   form.prevent-enter-submit(action='/cards/new', method='POST')
     .form-group
       label(for='question') Question

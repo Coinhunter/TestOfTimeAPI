@@ -11,6 +11,12 @@ block content
 			input.form-control(type='password', id='password', name='password')
 			.btn-toolbar
 				button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
-	else 
-		p Hello #{user.name}. View your 
-			a(href='/profile') profile.
+	else
+		.row.col-md-10.col-md-offset-1
+			h2 About the interface
+			p.lead This is the administration interface for Test of Time. You can add and remove both cards and categories from the database by following the links in the navbar above. This project is maintained by 
+				a(href='https://github.com/Coinhunter') Coinhunter
+				|. Please be aware that removing categories that still have cards in them will leave those cards orphaned.
+
+			h2 About the game
+			P Test of Time is a temporal-knowledge game. The idea is that each player has a timeline with a unique random starting year on it. Players take turns drawing cards from a deck. On each card is a question or statement that has a specific year as its' answer. If the player can place the card in the correct position on the timeline he or she gets to draw another card without yielding the turn. If the player is unable to place the card in the correct interval all cards gained since the start of that turn are lost and the next player gets to play. Every time a card has been placed correctly on the timeline the player may choose to end his or her turn and keep all of the cards gained that turn. This way players will accumulate cards over time. The more cards a player gets the harder it will get to place it in the right timeslot. If two cards have the same year as answer the player must be able to pinpoint the exact year.

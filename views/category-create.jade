@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .view-header.row
+    h1 Create Category
+
+  form.prevent-enter-submit(action='/category/new', method='POST')
+    .form-group
+      label(for='year') Category
+      input.form-control(type='text', id='category', name='category')
+
+    button.btn.btn-primary(type='submit') Create Category

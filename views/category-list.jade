@@ -10,6 +10,9 @@ block content
     if categories.length <= 0
       .alert.alert-info No categories yet.
     else
+      .alert.alert-warning.alert-dismissible(role='alert')
+        strong Warning!
+        |  If you delete a category that still has cards in it those cards will be orphaned. You can check if a category has cards in it by clicking it and removing or reassigning those cards to other categories.
       table.table.table-hover
         thead
           table-hover
@@ -19,7 +22,7 @@ block content
           each category in categories
             tr(class= row_class)
               td
-                a(href='/category/#{category}', data-toggle="tooltip", title='View all #{category} cards') #{category}
+                a(href='/cards/category/#{category}', data-toggle="tooltip", title='View all #{category} cards') #{category}
               td
                 a.pull-right(href='/category/delete/#{category}')
                   button.btn.btn-danger.btn-xs(type='button')

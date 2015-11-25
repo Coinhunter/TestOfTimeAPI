@@ -22,7 +22,7 @@ block content
               td #{card.question}
               td #{card.year}
               td 
-                a(href='/category/#{card.category}', data-toggle="tooltip", title='View all #{card.category} cards') #{card.category}
+                a(href='/cards/category/#{card.category}', data-toggle="tooltip", title='View all #{card.category} cards') #{card.category}
               td 
                 a.pull-right(href='/cards/delete/#{card._id}')
                   button.btn.btn-danger.btn-xs(type='button')

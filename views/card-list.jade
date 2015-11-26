@@ -24,7 +24,15 @@ block content
               td 
                 a(href='/cards/category/#{card.category}', data-toggle="tooltip", title='View all #{card.category} cards') #{card.category}
               td 
+                a.pull-right(href='/cards/edit/#{card._id}')
+                  button.btn.btn-danger.btn-xs(type='button')
+                    span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Edit this card')
+                | 
                 a.pull-right(href='/cards/delete/#{card._id}')
                   button.btn.btn-danger.btn-xs(type='button')
                     span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete this card')
 
+      if category
+        button.btn.btn-primary(type='button') Export #{category}-cards to server-file.
+      else
+        button.btn.btn-primary(type='button') Export all cards to server-file.

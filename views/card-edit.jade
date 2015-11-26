@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .row.col-md-10.col-md-offset-1
+    h1 Edit Card
+
+  .row.col-md-10.col-md-offset-1    
+    form.prevent-enter-submit(action='/cards/edit/#{card._id}', method='POST')
+      .form-group
+        label(for='question') Question
+        input.form-control(type='text', id='question', name='question', value='#{card.question}')
+
+      .form-group
+        label(for='year') Year
+        input.form-control(type='text', id='year', name='year', value='#{card.year}')
+
+      .form-group
+        label Roll
+        each category in categories
+          .radio
+            label(for='category-#{category}')
+              input(type='radio', name='category', id='category-#{category}', value=category, checked=(category.valueOf() == card.category.valueOf()))
+              | #{category}
+
+      button.btn.btn-primary(type='submit') Create Card

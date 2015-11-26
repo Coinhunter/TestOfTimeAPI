@@ -1,17 +1,22 @@
 [
     {
-        "question": "This is question 1",
-        "year": 1,
-        "category": "category1"
+        "category": "Other",
+        "question": "On the 14th of April this year the RMS Titanic collides with an iceberg and sinks; killing around 1500 people.",
+        "year": 1912
     },
     {
-        "question": "This is question 2",
-        "year": 2,
-        "category": "category2"
+        "category" : "Other",
+        "question" : "Julius Ceasar becomes emperor of the Roman Republic",
+        "year" : -49
     },
     {
-        "question": "This is question 3",
-        "year": 3,
-        "category": "category3"
+        "category" : "Sports",
+        "question" : "FIFA, The 'Fédération Internationale de Football Association' is formed",
+        "year" : 1904
+    },
+    {
+        "category": "Politics",
+        "question": "Columbus reaches the new world by stepping ashore on an island in the Bahamas archipelago that he named 'San Salvador'.",
+        "year": 1492,
     }
 ]

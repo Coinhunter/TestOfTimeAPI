@@ -15,11 +15,11 @@ block content
         input.form-control(type='text', id='year', name='year', value='#{card.year}')
 
       .form-group
-        label Roll
+        label Category
         each category in categories
           .radio
             label(for='category-#{category}')
               input(type='radio', name='category', id='category-#{category}', value=category, checked=(category.valueOf() == card.category.valueOf()))
               | #{category}
 
-      button.btn.btn-primary(type='submit') Create Card
+      button.btn.btn-primary(type='submit') Edit Card

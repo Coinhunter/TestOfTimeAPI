@@ -4,6 +4,12 @@ block content
   .view-header.row.col-md-10.col-md-offset-1
     h1 Manage Cards
 
+  .view-header.row.col-md-10.col-md-offset-1
+    if category
+      button.btn.btn-primary(type='button') Export #{category}-cards to server-file.
+    else
+      button.btn.btn-primary(type='button') Export all cards to server-file.
+
   if cards.length <= 0
     .row.col-md-10.col-md-offset-1    
       .alert.alert-info No cards yet.
@@ -32,8 +38,3 @@ block content
                 a.pull-right(href='/cards/delete/#{card._id}')
                   button.btn.btn-danger.btn-xs(type='button')
                     span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete this card')
-
-      if category
-        button.btn.btn-primary(type='button') Export #{category}-cards to server-file.
-      else
-        button.btn.btn-primary(type='button') Export all cards to server-file.

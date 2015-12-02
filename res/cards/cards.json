@@ -1,0 +1,72 @@
+[
+    {
+        "category": "Other",
+        "question": "On the 14th of April this year the RMS Titanic collides with an iceberg and sinks; killing around 1500 people.",
+        "year": 1912
+    },
+    {
+        "category" : "Other",
+        "question" : "Julius Ceasar becomes emperor of the Roman Republic",
+        "year" : -49
+    },
+    {
+        "category" : "Sports",
+        "question" : "FIFA, The 'Fédération Internationale de Football Association' is formed",
+        "year" : 1904
+    },
+    {
+        "category": "Politics",
+        "question": "Columbus reaches the new world by stepping ashore on an island in the Bahamas archipelago that he named 'San Salvador'.",
+        "year": 1492
+    },
+    {
+        "category": "Politics",
+        "question": "Ghengis Khan, founder of the Mongol empire dies.",
+        "year": 1227
+    },
+    {
+        "category": "Politics",
+        "question": "Constantinople falls to the Ottoman Empire, marking the end of the Roman Empire.",
+        "year": 1453
+    },
+    {
+        "category": "Politics",
+        "question": "The Treaty of Versailles is signed.",
+        "year": 1919
+    },
+    {
+        "category": "Politics",
+        "question": "The Kyoto Protocol was adopted in Kyoto, Japan, on 11 December of this year. Some 7 years later it entered into effect.",
+        "year": 1997
+    },
+    {
+        "category": "Other",
+        "question": "The Dinosaurs go extinct after a rock slams into the Earth digging out a crater over 180 km in diameter.",
+        "year": -66000000
+    },
+    {
+        "category": "Other",
+        "question": "The oldest fossils of Homo Sapiens Sapiens are approximately this old.",
+        "year": -195000
+    },
+    {
+        "category": "Entertainment",
+        "question": "Star Wars: A New Hope is released.",
+        "year": 1977
+    },
+    {
+        "category": "Science and Technology",
+        "question": "The United States of America puts a man on The Moon.",
+        "year": 1969
+    },
+    {
+        "category": "Politics",
+        "question": "The U.S drops an atomic bomb on Hiroshima. Between 90 and 120 thousand people lost their lives.",
+        "year": 1945
+    },
+    {
+        "category": "Other",
+        "question": "Taylor Swift is born.",
+        "year": 1989        
+    }
+]

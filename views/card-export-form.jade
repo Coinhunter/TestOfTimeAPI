@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .view-header.row.col-md-10.col-md-offset-1
+    h1 Export Cards
+
+    p Choose a file to save cards to. The existing file will be overwritten. (category: #{category})
+
+  .row.col-md-10.col-md-offset-1
+    if files.length <= 0
+      .alert.alert-info No files yet.
+    else
+      table.table.table-hover
+        thead
+          table-hover
+            th.sortable(data-default-direction='1') Filename
+        tbody
+          each file in files
+            tr(class= row_class)
+              td
+                a.pull-left(href='#') #{file}

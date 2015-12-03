@@ -4,7 +4,11 @@ block content
   .view-header.row.col-md-10.col-md-offset-1
     h1 Export Cards
 
-    p Choose a file to save cards to. The existing file will be overwritten. (category: #{category})
+    p Choose a file to save cards to or enter a filename to create a new file.
+
+    .alert.alert-warning.alert-dismissible(role='alert')
+      strong Warning!
+      |    Saving to an existing file will overwrite it.
 
   .row.col-md-10.col-md-offset-1
     if files.length <= 0
@@ -18,4 +22,13 @@ block content
           each file in files
             tr(class= row_class)
               td
-                a.pull-left(href='#') #{file}
+                a.pull-left(href='/cards/export/#{file}/#{category}') #{file}
+
+  .row.col-md-10.col-md-offset-1    
+    form.prevent-enter-submit(action='/cards/export/#{category}', method='POST')
+
+      .form-group
+        label(for='filename') Filename
+        input.form-control(type='text', id='filename', name='filename')
+
+      button.btn.btn-primary(type='submit') Create File

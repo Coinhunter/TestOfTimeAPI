@@ -18,11 +18,17 @@ block content
         thead
           table-hover
             th.sortable(data-default-direction='1') Filename
+            th(data-default-direction='1')
         tbody
           each file in files
             tr(class= row_class)
               td
                 a.pull-left(href='/cards/export/#{file}/#{category}') #{file}
+              td 
+                a.pull-right(href='/cards/deletefile/#{file}')
+                  button.btn.btn-danger.btn-xs(type='button')
+                    span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete "#{file}"')              
+
 
   .row.col-md-10.col-md-offset-1    
     form.prevent-enter-submit(action='/cards/export/#{category}', method='POST')

@@ -4,7 +4,7 @@ module.exports = {
   mode: 'default',
 
   // Server config
-  server: {
+  api: {
     name: 'TestOfTime',
     port: 3000
   },

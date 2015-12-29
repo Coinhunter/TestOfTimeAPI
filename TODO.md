@@ -15,3 +15,5 @@ TODO:
  - tell tyler that api keys are storesd in the .js files used by config, and that these are never submitted to github, because these are also backend they are never exposed to users. When you need to look up things on user side, make it a call to server instead. only way i can think of to hide the information.
 
 - Use errorhandler
+
+lagner ted talk

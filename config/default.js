@@ -1,8 +1,4 @@
 module.exports = {
-
-  // The current environment
-  mode: 'default',
-
   // Server config
   api: {
     name: 'TestOfTime',
@@ -15,18 +11,20 @@ module.exports = {
   },
 
   secrets: {
-    cookie: 'thisshouldbehardtoguess'
+    cookieSecret: 'thisshouldbehardtoguess'
   },
 
   // Database options
   mongo: {
-    uri: 'mongodb://localhost/testoftime'
+    uri: 'mongodb://localhost/testoftime',
+    sessionstore: 'mongodb://localhost/testoftime_sessions'
   },
 
   // Logging configuration
   logging: {
     level: 'info'
-  },  
+  },
+  
 
   // Salt string used to obfuscate ids
   // This string should never change

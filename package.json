@@ -20,6 +20,7 @@
     "bunyan": "^1.5.1",
     "config": "^1.16.0",
     "connect-ensure-login": "^0.1.1",
+    "connect-mongodb-session": "^1.1.0",
     "cookie-parser": "^1.4.0",
     "errorhandler": "^1.4.2",
     "express": "^4.13.3",

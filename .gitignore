@@ -25,3 +25,5 @@ node_modules
 coverage
 
 /config/runtime.json
+
+/.DS_Store

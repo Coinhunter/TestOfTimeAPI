@@ -32,6 +32,7 @@
     "jsonfile": "^2.2.3",
     "less-middleware": "^2.0.1",
     "method-override": "^2.3.5",
+    "mocha": "^2.3.4",
     "mongoose": "^4.1.7",
     "morgan": "^1.6.1",
     "passport": "^0.3.0",

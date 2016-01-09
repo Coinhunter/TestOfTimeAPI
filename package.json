@@ -1,12 +1,13 @@
 {
   "name": "TestOfTimeAPI",
   "version": "0.0.1",
-  "description": "API",
+  "description": "API and Administration servers",
   "private": true,
   "main": "server.js",
   "scripts": {
     "start-api": "SERVER_TYPE='api' node server.js",
-    "start-admin": "SERVER_TYPE='admin' node server.js"
+    "start-admin": "SERVER_TYPE='admin' node server.js",
+    "test-unit": "NODE_ENV=test mocha --ui bdd --check-leaks --recursive --slow 20 --reporter spec test/unit"
   },
   "repository": {
     "type": "git",

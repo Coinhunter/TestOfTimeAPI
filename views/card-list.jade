@@ -9,7 +9,11 @@ block content
     .btn-toolbar
       a.pull-left(href='/cards/new')
         button.btn.btn-primary(type='button') Create Card
-      a.btn.btn-primary(href='/cards/export') Export cards to server-file.
+
+      if category
+        a.btn.btn-primary(href='/cards/export/#{category}') Export cards to server-file.
+      else 
+        a.btn.btn-primary(href='/cards/export/all') Export cards to server-file.
 
   if cards.length <= 0
     .row.col-md-10.col-md-offset-1    

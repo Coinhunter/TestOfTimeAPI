@@ -4,22 +4,31 @@ block content
   .row.col-md-10.col-md-offset-1
     h1 Create Card
 
-  .row.col-md-10.col-md-offset-1    
-    form.prevent-enter-submit(action='/cards/new', method='POST')
+  .row.col-md-10.col-md-offset-1
+    form.form-horizontal
       .form-group
-        label(for='question') Question
-        input.form-control(type='text', id='question', name='question')
+        label.col-md-4.control-label(for='Year') Year
+        .col-md-4
+          input#Year.form-control.input-md(name='Year', type='text', placeholder='Year', required='')
+      .form-group
+        label.col-md-4.control-label(for='Question') Question
+        .col-md-4
+          input#Question.form-control.input-md(name='Question', type='text', placeholder='Question', required='')
+      
+      each language in languages
+        .form-group
+          label.col-md-4.control-label(for='#{language}') #{language}
+          .col-md-4
+            input.form-control.input-md(name='#{language}', id='#{language}', placeholder='Question in this language')
 
       .form-group
-        label(for='year') Year
-        input.form-control(type='text', id='year', name='year')
-
+        label.col-md-4.control-label(for='categories') Categories
+        .col-md-4
+          each category in categories
+            .radio
+              label(for='#{category}')
+                input(type='radio', name='category', id='#{category}' value=category)
+                | #{category}
+  
       .form-group
-        label Category
-        each category in categories
-          .radio
-            label(for='category-#{category}')
-              input(type='radio', name='category', id='category-#{category}', value=category)
-              | #{category}
-
-      button.btn.btn-primary(type='submit') Create Card
+        button.btn.btn-primary(type='submit') Create Card

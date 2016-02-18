@@ -14,6 +14,14 @@ block content
         label(for='year') Year
         input.form-control(type='text', id='year', name='year', value='#{card.year}')
 
+      each language in card.existinglanguages
+        .form-group
+          label(for='#{language}') #{language}
+          if (typeof card.languages[language] != 'undefined')
+            input.form-control(name='#{language}', id='#{language}', placeholder='Question in this language', value='#{card.languages[language]}')
+          else
+            input.form-control(name='#{language}', id='#{language}', placeholder='Question in this language')
+
       .form-group
         label Category
         each category in categories

@@ -22,8 +22,8 @@ block content
           each category in categories
             tr(class= row_class)
               td
-                a(href='/cards/category/#{category}', data-toggle="tooltip", title='View all #{category} cards') #{category}
+                a(href='/cards/category/#{category.category}', data-toggle="tooltip", title='View all #{category.category} cards') #{category.category}
               td
-                a.pull-right(href='/category/delete/#{category}')
+                a.pull-right(href='/category/delete/#{category.category}')
                   button.btn.btn-danger.btn-xs(type='button')
-                    span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete "#{category}"')
+                    span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete "#{category.category}"')

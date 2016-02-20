@@ -1,3 +1,6 @@
+#login {
+  padding-top: 50px;	
+}
 
 #login img{
   margin: 10px 0;
@@ -9,7 +12,7 @@
 
 #login .login {
   max-width: 300px;
-	margin: 35px auto;
+  margin: 10px auto;
 }
 
 #login .login-form{
@@ -17,15 +20,32 @@
 }
 
 .input-group {
-	margin-top: 5px;
-	margin-bottom: 5px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
-.well {
+.well-white {
     background: rgb(255, 255, 255);
 }
 
+.well-grey {
+	background: rgb(249, 249, 249);
+}
+
+.login-well {
+	margin: 0px;
+}
+
+.welltext-paddings {
+	padding: 0px;
+	margin: 0px;
+}
+
 .background-tot-signin {
-	background: rgb(0,0,0);
+	background: rgb(249,249,249);
 	height: 100%;
+}
+
+.robotofont {
+	font-family: 'Open Sans', sans-serif;
 }

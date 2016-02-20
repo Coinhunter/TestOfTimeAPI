@@ -1,14 +1,19 @@
 extends layout
 
 block content
-    link(rel='stylesheet', href='/css/signinform.css')
-    .background-tot-signin
-      #login.container
+  link(rel='stylesheet', href='/css/signinform.css')
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css')
+  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+  .background-tot-signin            
+      #login.container 
         .row-fluid
+          .center
+            p.text-m
+              i.fa.fa-history.fa-5x
+            .robotofont 
+              h3 Sign in to TestOfTime
           .span12
-            .login.well.well-small
-              .center
-                img(src='http://placehold.it/250x100&text=Logo', alt='logo')
+            .login.well.well-small.well-white
               form.login-form(action='/login', method='POST', accept-charset='utf-8')
                 
                 .input-group
@@ -22,4 +27,9 @@ block content
                   input.form-control(type='password', placeholder='Password', required='required', id='password', name='password')
 
                 .control-group
-                  input.btn.btn-primary.btn-large.btn-block(type='submit', value='Sign in')
+                  input.btn.btn-success.btn-large.btn-block(type='submit', value='Sign in')
+          .span12
+            .login.well.well-small.login-well.well-grey
+              .center
+                p.welltext-paddings New to TestOfTime? 
+                  a(href='#') Create an account.

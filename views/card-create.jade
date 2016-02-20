@@ -26,9 +26,9 @@ block content
         .col-md-4
           each category in categories
             .radio
-              label(for='#{category}')
-                input(type='radio', name='category', id='#{category}', value=category)
-                | #{category}
+              label(for='#{category.category}')
+                input(type='radio', name='category', id='#{category.category}', value=category.category)
+                | #{category.category}
   
       .form-group
         button.btn.btn-primary(type='submit') Create Card

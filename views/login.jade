@@ -1,12 +1,25 @@
 extends layout
 
 block content
-  link(rel='stylesheet', href='/css/signin.css')       
-  form.form-signin(action='/login', method='POST')
-    h2.form-signin-heading Sign in
-    label.sr-only(for='email') E-mail
-    input.form-control(type='email', id='email', name='email', autofocus)
-    label.sr-only(for='password') Password
-    input.form-control(type='password', id='password', name='password')
-    .btn-toolbar
-      button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+    link(rel='stylesheet', href='/css/signinform.css')
+    .background-tot-signin
+      #login.container
+        .row-fluid
+          .span12
+            .login.well.well-small
+              .center
+                img(src='http://placehold.it/250x100&text=Logo', alt='logo')
+              form.login-form(action='/login', method='POST', accept-charset='utf-8')
+                
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-user
+                  input.form-control(type='text', placeholder='Email', required='required', id='email', name='email', maxlength='255')
+                
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-lock
+                  input.form-control(type='password', placeholder='Password', required='required', id='password', name='password')
+
+                .control-group
+                  input.btn.btn-primary.btn-large.btn-block(type='submit', value='Sign in')

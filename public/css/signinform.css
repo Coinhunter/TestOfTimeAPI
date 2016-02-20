@@ -1,0 +1,31 @@
+
+#login img{
+  margin: 10px 0;
+}
+
+#login .center {
+  text-align: center;
+}
+
+#login .login {
+  max-width: 300px;
+	margin: 35px auto;
+}
+
+#login .login-form{
+  padding: 0px 25px;
+}
+
+.input-group {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.well {
+    background: rgb(255, 255, 255);
+}
+
+.background-tot-signin {
+	background: rgb(0,0,0);
+	height: 100%;
+}

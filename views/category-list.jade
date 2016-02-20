@@ -2,28 +2,28 @@ extends layout
 
 block content
 
-  
-  .view-header.row.col-md-10.col-md-offset-1
-    h1 Manage Categories
+  .container
+    .view-header.row.col-md-10.col-md-offset-1
+      h1 Manage Categories
 
-  .row.col-md-10.col-md-offset-1
-    if categories.length <= 0
-      .alert.alert-info No categories yet.
-    else
-      .alert.alert-warning.alert-dismissible(role='alert')
-        strong Warning!
-        |  If you delete a category that still has cards in it those cards will be orphaned. You can check if a category has cards in it by clicking it and removing or reassigning those cards to other categories.
-      table.table.table-hover
-        thead
-          table-hover
-            th.sortable(data-default-direction='1') Category
-            th(data-default-direction='1')
-        tbody
-          each category in categories
-            tr(class= row_class)
-              td
-                a(href='/cards/category/#{category.category}', data-toggle="tooltip", title='View all #{category.category} cards') #{category.category}
-              td
-                a.pull-right(href='/category/delete/#{category.category}')
-                  button.btn.btn-danger.btn-xs(type='button')
-                    span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete "#{category.category}"')
+    .row.col-md-10.col-md-offset-1
+      if categories.length <= 0
+        .alert.alert-info No categories yet.
+      else
+        .alert.alert-warning.alert-dismissible(role='alert')
+          strong Warning!
+          |  If you delete a category that still has cards in it those cards will be orphaned. You can check if a category has cards in it by clicking it and removing or reassigning those cards to other categories.
+        table.table.table-hover
+          thead
+            table-hover
+              th.sortable(data-default-direction='1') Category
+              th(data-default-direction='1')
+          tbody
+            each category in categories
+              tr(class= row_class)
+                td
+                  a(href='/cards/category/#{category.category}', data-toggle="tooltip", title='View all #{category.category} cards') #{category.category}
+                td
+                  a.pull-right(href='/category/delete/#{category.category}')
+                    button.btn.btn-danger.btn-xs(type='button')
+                      span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete "#{category.category}"')

@@ -1,45 +1,46 @@
 extends layout
 
 block content
-  .view-header.row.col-md-10.col-md-offset-1
-    h1 Manage Cards
+  .container
+    .view-header.row.col-md-10.col-md-offset-1
+      h1 Manage Cards
 
-  .view-header.row.col-md-10.col-md-offset-1
+    .view-header.row.col-md-10.col-md-offset-1
 
-    .btn-toolbar
-      a.pull-left(href='/cards/new')
-        button.btn.btn-primary(type='button') Create Card
+      .btn-toolbar
+        a.pull-left(href='/cards/new')
+          button.btn.btn-primary(type='button') Create Card
 
-      if category
-        a.btn.btn-primary(href='/cards/export/#{category}') Export cards to server-file.
-      else 
-        a.btn.btn-primary(href='/cards/export/all') Export cards to server-file.
+        if category
+          a.btn.btn-primary(href='/cards/export/#{category}') Export cards to server-file.
+        else 
+          a.btn.btn-primary(href='/cards/export/all') Export cards to server-file.
 
-  if cards.length <= 0
-    .row.col-md-10.col-md-offset-1    
-      .alert.alert-info No cards yet.
-  else
-    .row.col-md-10.col-md-offset-1    
-      table.table.table-hover
-        thead
-          table-hover
-            th.sortable(data-default-direction='1') Question
-            th.sortable(data-default-direction='1') Year
-            th.sortable(data-default-direction='1') Category
-            th(data-default-direction='1')
-            th(data-default-direction='1')
-        tbody
-          each card in cards
-            tr(class= row_class)
-              td #{card.question}
-              td #{card.year}
-              td 
-                a(href='/cards/category/#{card.category}', data-toggle="tooltip", title='View all #{card.category} cards') #{card.category}
-              td
-                a.pull-right(href='/cards/edit/#{card._id}')
-                  button.btn.btn-info.btn-xs(type='button')
-                    span.glyphicon.glyphicon-wrench(aria-hidden='true', data-toggle="tooltip", title='Edit this card')
-              td 
-                a.pull-right(href='/cards/delete/#{card._id}')
-                  button.btn.btn-danger.btn-xs(type='button')
-                    span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete this card')
+    if cards.length <= 0
+      .row.col-md-10.col-md-offset-1    
+        .alert.alert-info No cards yet.
+    else
+      .row.col-md-10.col-md-offset-1    
+        table.table.table-hover
+          thead
+            table-hover
+              th.sortable(data-default-direction='1') Question
+              th.sortable(data-default-direction='1') Year
+              th.sortable(data-default-direction='1') Category
+              th(data-default-direction='1')
+              th(data-default-direction='1')
+          tbody
+            each card in cards
+              tr(class= row_class)
+                td #{card.question}
+                td #{card.year}
+                td 
+                  a(href='/cards/category/#{card.category}', data-toggle="tooltip", title='View all #{card.category} cards') #{card.category}
+                td
+                  a.pull-right(href='/cards/edit/#{card._id}')
+                    button.btn.btn-info.btn-xs(type='button')
+                      span.glyphicon.glyphicon-wrench(aria-hidden='true', data-toggle="tooltip", title='Edit this card')
+                td 
+                  a.pull-right(href='/cards/delete/#{card._id}')
+                    button.btn.btn-danger.btn-xs(type='button')
+                      span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete this card')

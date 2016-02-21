@@ -13,6 +13,10 @@ block content
         .alert.alert-warning.alert-dismissible(role='alert')
           strong Warning!
           |  If you delete a category that still has cards in it those cards will be orphaned. You can check if a category has cards in it by clicking it and removing or reassigning those cards to other categories.
+        
+        a.pull-left(href='/category/new')
+          button.btn.btn-primary(type='button') Create new category
+
         table.table.table-hover
           thead
             table-hover

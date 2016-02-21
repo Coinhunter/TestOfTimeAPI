@@ -3,70 +3,45 @@ html
   head
     title #{page_title ? page_title + '| ' : ''} Test of Time
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='/css/testoftime.css')
-    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto', type='text/css')  
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css')
     block stylesheets
   body
     if locals.user
       nav.navbar.navbar-default.navbar-static-top(role='navigation')
         .container
-          .navbar-header
-            a.navbar-brand(href='/') Test of Time Admin
-          ul.nav.navbar-nav
+          .col-md-10.col-md-offset-1
+            .navbar-header
+              a.navbar-brand(href='/')
+                p.robotofont Test of Time Admin
 
-            li.dropdown
-              a.dropdown-toggle(href='#', data-toggle='dropdown')
-                i.glyphicon.glyphicon-envelope
-                |   Cards
-                b.caret
-              ul.dropdown-menu
-                li
-                  a(href='/cards') Manage Cards
-                li.divider
-                li
-                  a(href='/cards/new') Create Card
+            ul.nav.navbar-nav
+              li
+                a(href='/cards')
+                  i(data-toggle='tooltip', title='Cards', data-placement='bottom').glyphicon.glyphicon-envelope
 
-            li.dropdown
-              a.dropdown-toggle(href='#', data-toggle='dropdown')
-                i.glyphicon.glyphicon-tag
-                |   Categories
-                b.caret
-              ul.dropdown-menu
-                li
-                  a(href='/categories') Manage Categories
-                li.divider
-                li
-                  a(href='/category/new') Create Category
-
-            li.dropdown
-              a.dropdown-toggle(href='#', data-toggle='dropdown')
-                i.glyphicon.glyphicon-user
-                |   Users
-                b.caret
-              ul.dropdown-menu
-                li
-                  a(href='/users') Manage Users
-                li.divider
-                li
-                  a(href='/user/new') Create User
+              li
+                a(href='/categories')
+                  i(data-toggle='tooltip', title='Categories', data-placement='bottom').glyphicon.glyphicon-tag
 
 
+              li
+                a(href='/users')
+                  i(data-toggle='tooltip', title='Users', data-placement='bottom').fa.fa-users
 
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href='/setup')
-                i.glyphicon.glyphicon-cog
-            li.dropdown
-              a.dropdown-toggle(href='#', data-toggle='dropdown')
-                i.glyphicon.glyphicon-home
-                
-                b.caret
-              ul.dropdown-menu
-                li
-                  a(href='/users/#{user._id}') Account
-                li.divider
-                li
-                  a(href='/logout') Log out!
+              li
+                a(href='/setup')
+                  i(data-toggle='tooltip', title='Setup', data-placement='bottom').fa.fa-cog
+
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='/users/#{user._id}')
+                  i(data-toggle='tooltip', title='User', data-placement='bottom').fa.fa-user
+              li
+                a(href='/logout')
+                  i(data-toggle='tooltip', title='Logout', data-placement='bottom').fa.fa-sign-out
 
     block content
 

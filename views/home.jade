@@ -1,60 +1,25 @@
 extends layout
 
 block content
-        if !user
-            link(rel='stylesheet', href='/css/signinform.css')
-            link(href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css')
-            link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
-            .background-tot-signin            
-                #login.container 
-                  .row-fluid
-                    .center
-                      p.text-m
-                        i.fa.fa-history.fa-5x
-                      .robotofont 
-                        h3 Sign in to TestOfTime
-                    .span12
-                      .login.well.well-small.well-white
-                        form.login-form(action='/login', method='POST', accept-charset='utf-8')
-                          
-                          .input-group
-                            span.input-group-addon
-                              i.glyphicon.glyphicon-user
-                            input.form-control(type='text', placeholder='Email', required='required', id='email', name='email', maxlength='255')
-                          
-                          .input-group
-                            span.input-group-addon
-                              i.glyphicon.glyphicon-lock
-                            input.form-control(type='password', placeholder='Password', required='required', id='password', name='password')
+  .container
+      .row.col-md-10.col-md-offset-1
+          h2 About the interface
+          p.lead This is the administration interface for Test of Time. You can add and remove both cards and categories from the database by following the links in the navbar above. This project is maintained by 
+              a(href='https://github.com/Coinhunter') Coinhunter
+              |. Please be aware that removing categories that still have cards in them will leave those cards orphaned.
 
-                          .control-group
-                            input.btn.btn-success.btn-large.btn-block(type='submit', value='Sign in')
-                    .span12
-                      .login.well.well-small.login-well.well-grey
-                        .center
-                          p.welltext-paddings New to TestOfTime? 
-                            a(href='#') Create an account.
+          h2 First use information
+          p You can pre-load cards and categories from server-local resource files. To do so, use the buttons below.
 
-        else
-            .container
-                .row.col-md-10.col-md-offset-1
-                    h2 About the interface
-                    p.lead This is the administration interface for Test of Time. You can add and remove both cards and categories from the database by following the links in the navbar above. This project is maintained by 
-                        a(href='https://github.com/Coinhunter') Coinhunter
-                        |. Please be aware that removing categories that still have cards in them will leave those cards orphaned.
+          .alert.alert-warning.alert-dismissible(role='alert')
+              button.close(type='button', data-dismiss='alert', aria-label='Close')
+              strong Warning!
+              |  Only do this once, additional loads may result in duplicates.
 
-                    h2 First use information
-                    p You can pre-load cards and categories from server-local resource files. To do so, use the buttons below.
+      .row.col-md-8.col-md-offset-2
+          a.btn.btn-warning.btn-block(href='/preloadcards') Load Cards from JSON file
+          a.btn.btn-warning.btn-block(href='/preloadcategories') Load Categories from JSON file
 
-                    .alert.alert-warning.alert-dismissible(role='alert')
-                        button.close(type='button', data-dismiss='alert', aria-label='Close')
-                        strong Warning!
-                        |  Only do this once, additional loads may result in duplicates.
-
-                .row.col-md-8.col-md-offset-2
-                    a.btn.btn-warning.btn-block(href='/preloadcards') Load Cards from JSON file
-                    a.btn.btn-warning.btn-block(href='/preloadcategories') Load Categories from JSON file
-
-                .row.col-md-10.col-md-offset-1
-                    h2 About the game
-                    P Test of Time is a history-game. The idea is that each player has a timeline with a unique random starting year on it. Players take turns drawing cards from a deck. On each card is a question or statement that has a specific year as its' answer. If the player can place the card in the correct position on the timeline he or she gets to draw another card without yielding the turn. If the player is unable to place the card in the correct interval all cards gained since the start of that turn are lost and the next player gets to play. Every time a card has been placed correctly on the timeline the player may choose to end his or her turn and keep all of the cards gained that turn. This way players will accumulate cards over time. The more cards a player gets the harder it will get to place it in the right timeslot. If two cards have the same year as answer the player must be able to pinpoint the exact year.
+      .row.col-md-10.col-md-offset-1
+          h2 About the game
+          P Test of Time is a history-game. The idea is that each player has a timeline with a unique random starting year on it. Players take turns drawing cards from a deck. On each card is a question or statement that has a specific year as its' answer. If the player can place the card in the correct position on the timeline he or she gets to draw another card without yielding the turn. If the player is unable to place the card in the correct interval all cards gained since the start of that turn are lost and the next player gets to play. Every time a card has been placed correctly on the timeline the player may choose to end his or her turn and keep all of the cards gained that turn. This way players will accumulate cards over time. The more cards a player gets the harder it will get to place it in the right timeslot. If two cards have the same year as answer the player must be able to pinpoint the exact year.

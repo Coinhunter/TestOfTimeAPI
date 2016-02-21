@@ -14,6 +14,11 @@ block content
               h3 Sign in to TestOfTime
           .span12
             .login.well.well-small.well-white
+              if loginerror
+                .alert.alert-danger.login-alert(role='alert')
+                  .center
+                    p Incorrect Email or Password.
+
               form.login-form(action='/login', method='POST', accept-charset='utf-8')
                 
                 .input-group

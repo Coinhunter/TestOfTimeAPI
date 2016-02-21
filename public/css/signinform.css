@@ -15,8 +15,17 @@
   margin: 10px auto;
 }
 
-#login .login-form{
+#login .login-form {
   padding: 0px 25px;
+}
+
+.login-alert {
+	margin-left: 25px;
+	margin-right: 25px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 7px;
+	padding-bottom: 0px;	
 }
 
 .input-group {

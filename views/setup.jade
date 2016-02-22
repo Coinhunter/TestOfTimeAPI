@@ -2,5 +2,14 @@ extends layout
 
 block content
   .container
-      .row.col-md-10.col-md-offset-1
-          h2 About the interface
+    .row.col-md-10.col-md-offset-1
+      h2 Import from resource file
+      p.lead The repository comes with resource files of cards and categories that you can initially populate the database with. You can pre-load cards and categories from these server-local resource files if you want. To do so, use the buttons below. Be sure to only do this once, as the procedure will create duplicate cards if run multiple times.
+      
+      a(href='/cards/import') 
+        button(type="button" class="btn btn-success") Load cards resource file.
+
+      h2 Generate resource file
+      p.lead You can also export the cards you have created to a resource file.
+      a(href='/cards/export')
+        button(type="button" class="btn btn-success") Export cards to resource file.

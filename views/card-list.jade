@@ -6,15 +6,9 @@ block content
       h1 Manage Cards
 
     .view-header.row.col-md-10.col-md-offset-1
-
       .btn-toolbar
         a.pull-left(href='/cards/new')
-          button.btn.btn-primary(type='button') Create Card
-
-        if category
-          a.btn.btn-primary(href='/cards/export/#{category}') Export cards to server-file.
-        else 
-          a.btn.btn-primary(href='/cards/export/all') Export cards to server-file.
+          button.btn.btn-success(type='button') Create Card
 
     if cards.length <= 0
       .row.col-md-10.col-md-offset-1    

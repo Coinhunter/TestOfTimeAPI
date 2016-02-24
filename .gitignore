@@ -27,3 +27,7 @@ coverage
 /config/runtime.json
 
 /.DS_Store
+
+
+/res/cards/
+/logs/

@@ -4,7 +4,7 @@ block content
   .container
     .row.col-md-10.col-md-offset-1
       h2 Import from resource file
-      p.lead The repository comes with resource files of cards and categories that you can initially populate the database with. You can pre-load cards and categories from these server-local resource files if you want. To do so, use the buttons below. Be sure to only do this once, as the procedure will create duplicate cards if run multiple times.
+      p.lead The repository comes with resource files of cards and categories that you can initially populate the database with. You can pre-load cards and categories from these server-local resource files if you want. To do so, use the buttons below. If there is already a card with the same ID in the database that card will not be loaded from file.
       
       a(href='/cards/import') 
         button(type="button" class="btn btn-success") Load cards resource file.

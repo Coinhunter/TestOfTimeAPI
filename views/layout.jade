@@ -12,36 +12,37 @@ html
     if locals.user
       nav.navbar.navbar-default.navbar-static-top(role='navigation')
         .container
-          .col-md-10.col-md-offset-1
-            .navbar-header
-              a.navbar-brand(href='/')
-                p.robotofont Test of Time Admin
+          .row
+            .col-md-10.col-md-offset-1
+              .navbar-header
+                a.navbar-brand(href='/')
+                  p.robotofont Test of Time Admin
 
-            ul.nav.navbar-nav
-              li
-                a(href='/cards')
-                  i(data-toggle='tooltip', title='Cards', data-placement='bottom').glyphicon.glyphicon-envelope
-
-              li
-                a(href='/categories')
-                  i(data-toggle='tooltip', title='Categories', data-placement='bottom').glyphicon.glyphicon-tag
-
-              if locals.user.role == 'admin'
+              ul.nav.navbar-nav
                 li
-                  a(href='/users')
-                    i(data-toggle='tooltip', title='Users', data-placement='bottom').fa.fa-users
+                  a(href='/cards')
+                    i(data-toggle='tooltip', title='Cards', data-placement='bottom').glyphicon.glyphicon-envelope
 
                 li
-                  a(href='/setup')
-                    i(data-toggle='tooltip', title='Setup', data-placement='bottom').fa.fa-cog
+                  a(href='/categories')
+                    i(data-toggle='tooltip', title='Categories', data-placement='bottom').glyphicon.glyphicon-tag
 
-            ul.nav.navbar-nav.navbar-right
-              li
-                a(href='/users/#{user._id}')
-                  i(data-toggle='tooltip', title='User', data-placement='bottom').fa.fa-user
-              li
-                a(href='/logout')
-                  i(data-toggle='tooltip', title='Logout', data-placement='bottom').fa.fa-sign-out
+                if locals.user.role == 'admin'
+                  li
+                    a(href='/users')
+                      i(data-toggle='tooltip', title='Users', data-placement='bottom').fa.fa-users
+
+                  li
+                    a(href='/setup')
+                      i(data-toggle='tooltip', title='Setup', data-placement='bottom').fa.fa-cog
+
+              ul.nav.navbar-nav.navbar-right
+                li
+                  a(href='/users/#{user._id}')
+                    i(data-toggle='tooltip', title='User', data-placement='bottom').fa.fa-user
+                li
+                  a(href='/logout')
+                    i(data-toggle='tooltip', title='Logout', data-placement='bottom').fa.fa-sign-out
 
     block content
 

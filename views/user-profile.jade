@@ -2,44 +2,46 @@ extends layout
 
 block content
   .container
-    .row.col-md-10.col-md-offset-1
-      // user : the user we are editing      
-      // usr  : the usr logged in
+    .row
+      .col-md-10.col-md-offset-1
+        // user : the user we are editing      
+        // usr  : the usr logged in
 
-      h2 User profile
+        h2 User profile
 
-      form.prevent-enter-submit(action='/user/edit/#{user._id}', method='POST')
-        
-        .form-group
-          label.sr-only(for='username') Username
-          .input-group.col-md-4
-            .input-group-addon Username
-            input.form-control.input-md(type='text', id='username', name='username', value='#{user.id}' disabled)
+        form.prevent-enter-submit(action='/user/edit/#{user._id}', method='POST')
+          
+          .form-group
+            label.sr-only(for='username') Username
+            .input-group.col-md-4
+              .input-group-addon Username
+              input.form-control.input-md(type='text', id='username', name='username', value='#{user.id}' disabled)
 
-        .form-group
-          label.sr-only(for='email') 
-          .input-group.col-md-4
-            .input-group-addon Email
-            input.form-control.input-md(type='text', id='email', name='email', value='#{user.email}' disabled)
+          .form-group
+            label.sr-only(for='email') 
+            .input-group.col-md-4
+              .input-group-addon Email
+              input.form-control.input-md(type='text', id='email', name='email', value='#{user.email}' disabled)
 
-        .form-group
-          .radio
-            label(for='role-admin')
-              input(type='radio', name='role', id='role-admin', value='admin', checked=(user.role.valueOf() == 'admin'))
-              | Admin
-          .radio
-            label(for='role-editor')
-              input(type='radio', name='role', id='role-editor', value='editor', checked=(user.role.valueOf() == 'editor'))
-              | Editor
+          .form-group
+            .radio
+              label(for='role-admin')
+                input(type='radio', name='role', id='role-admin', value='admin', checked=(user.role.valueOf() == 'admin'))
+                | Admin
+            .radio
+              label(for='role-editor')
+                input(type='radio', name='role', id='role-editor', value='editor', checked=(user.role.valueOf() == 'editor'))
+                | Editor
 
-        .form-group
-          .input-group.col-md-4
-            button.btn.btn-success.btn-block(type='submit') Save
+          .form-group
+            .input-group.col-md-4
+              button.btn.btn-success.btn-block(type='submit') Save
 
-    .row.col-md-10.col-md-offset-1
-      .input-group.col-md-4
-        if user.id == usr.id
-          button.btn.btn-danger.btn-block.disabled(type='button') Delete #{user.id}
-        else
-          a.userlink(href='/user/delete/#{user._id}')
-            button.btn.btn-danger.btn-block(type='button') Delete #{user.id}
+    .row
+      .col-md-10.col-md-offset-1
+        .input-group.col-md-4
+          if user.id == usr.id
+            button.btn.btn-danger.btn-block.disabled(type='button') Delete #{user.id}
+          else
+            a.userlink(href='/user/delete/#{user._id}')
+              button.btn.btn-danger.btn-block(type='button') Delete #{user.id}

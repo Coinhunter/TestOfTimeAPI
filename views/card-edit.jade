@@ -2,51 +2,54 @@ extends layout
 
 block content
   .container
-    .row.col-md-10.col-md-offset-1
-      h1 Edit Card
+    .row
+      .col-md-10.col-md-offset-1
+        h1 Edit Card
 
-    .row.col-md-10.col-md-offset-1    
-      form.prevent-enter-submit(action='/cards/edit/#{card._id}', method='POST')
-        
-        .form-group
-          label.sr-only(for='question') Question
-          .input-group
-            .input-group-addon Question
-            input.form-control.input-md(type='text', id='question', name='question', value='#{card.question}')
-
-        .form-group
-          label.sr-only(for='year') Year
-          .input-group
-            .input-group-addon Year
-            input.form-control.input-md(type='text', id='year', name='year', value='#{card.year}')
-
-        each language in card.existinglanguages
+    .row
+      .col-md-10.col-md-offset-1    
+        form.prevent-enter-submit(action='/cards/edit/#{card._id}', method='POST')
+          
           .form-group
-            label.sr-only(for='#{language}') #{language}
+            label.sr-only(for='question') Question
             .input-group
-              if card.languages != null
-                if (typeof card.languages[language] != 'undefined')
-                  .input-group-addon #{language}
-                  input.form-control(name='#{language}', id='#{language}', placeholder='Question in this language', value='#{card.languages[language]}')
+              .input-group-addon Question
+              input.form-control.input-md(type='text', id='question', name='question', value='#{card.question}')
+
+          .form-group
+            label.sr-only(for='year') Year
+            .input-group
+              .input-group-addon Year
+              input.form-control.input-md(type='text', id='year', name='year', value='#{card.year}')
+
+          each language in card.existinglanguages
+            .form-group
+              label.sr-only(for='#{language}') #{language}
+              .input-group
+                if card.languages != null
+                  if (typeof card.languages[language] != 'undefined')
+                    .input-group-addon #{language}
+                    input.form-control(name='#{language}', id='#{language}', placeholder='Question in this language', value='#{card.languages[language]}')
+                  else
+                    .input-group-addon #{language}
+                    input.form-control(name='#{language}', id='#{language}', placeholder='Question in this language')
                 else
-                  .input-group-addon #{language}
+                  .input-group-addon #{language} 
                   input.form-control(name='#{language}', id='#{language}', placeholder='Question in this language')
-              else
-                .input-group-addon #{language} 
-                input.form-control(name='#{language}', id='#{language}', placeholder='Question in this language')
 
-        p.lead Category
-        .form-group
-          each category in categories
-            .radio
-              label(for='category-#{category.category}')
-                input(type='radio', name='category', id='category-#{category.category}', value=category.category, checked=(category.category.valueOf() == card.category.valueOf()))
-                | #{category.category}
+          p.lead Category
+          .form-group
+            each category in categories
+              .radio
+                label(for='category-#{category.category}')
+                  input(type='radio', name='category', id='category-#{category.category}', value=category.category, checked=(category.category.valueOf() == card.category.valueOf()))
+                  | #{category.category}
 
-        .form-group
-          .input-group.col-md-4
-            button.btn.btn-success.btn-block(type='submit') Save
+          .form-group
+            .input-group.col-md-4
+              button.btn.btn-success.btn-block(type='submit') Save
     
-    .row.col-md-10.col-md-offset-1
-      .input-group.col-md-4
-        a.btn.btn-danger.btn-block(href='/cards') Cancel
+    .row
+      .col-md-10.col-md-offset-1
+        .input-group.col-md-4
+          a.btn.btn-danger.btn-block(href='/cards') Cancel

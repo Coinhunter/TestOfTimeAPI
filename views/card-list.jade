@@ -2,33 +2,37 @@ extends layout
 
 block content
   .container
-    .view-header.row.col-md-10.col-md-offset-1
-      h1 Manage Cards
+    .row
+      .col-md-10.col-md-offset-1
+        h1 Manage Cards
 
-    .row.col-md-4.col-md-offset-1
-      a.userlink(href='/cards/new')
-        .padding-vertical-10px
-          button.btn.btn-success.btn-block(type='button') Create Card
+    .row
+      .col-md-4.col-md-offset-1
+        a.userlink(href='/cards/new')
+          .padding-vertical-10px
+            button.btn.btn-success.btn-block(type='button') Create Card
 
 
     if cards.length <= 0
-      .row.col-md-10.col-md-offset-1    
-        .alert.alert-info No cards yet.
+      .row
+        .col-md-10.col-md-offset-1    
+          .alert.alert-info No cards yet.
     else
-      .row.col-md-10.col-md-offset-1    
-        table.table.table-hover.table-bordered.table-striped
-          tbody
-            each card in cards
-              tr(class= row_class)
-                td #{card.question}
-                td #{card.year}
-                td 
-                  a(href='/cards/category/#{card.category}', data-toggle="tooltip", title='View all #{card.category} cards') #{card.category}
-                td
-                  a.pull-right(href='/cards/edit/#{card._id}')
-                    button.btn.btn-success.btn-xs(type='button')
-                      span.glyphicon.glyphicon-wrench(aria-hidden='true', data-toggle="tooltip", title='Edit this card')
-                td 
-                  a.pull-right(href='/cards/delete/#{card._id}')
-                    button.btn.btn-danger.btn-xs(type='button')
-                      span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete this card')
+      .row
+        .col-md-10.col-md-offset-1    
+          table.table.table-hover.table-bordered.table-striped
+            tbody
+              each card in cards
+                tr(class= row_class)
+                  td #{card.question}
+                  td #{card.year}
+                  td 
+                    a(href='/cards/category/#{card.category}', data-toggle="tooltip", title='View all #{card.category} cards') #{card.category}
+                  td
+                    a.pull-right(href='/cards/edit/#{card._id}')
+                      button.btn.btn-success.btn-xs(type='button')
+                        span.glyphicon.glyphicon-wrench(aria-hidden='true', data-toggle="tooltip", title='Edit this card')
+                  td 
+                    a.pull-right(href='/cards/delete/#{card._id}')
+                      button.btn.btn-danger.btn-xs(type='button')
+                        span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete this card')

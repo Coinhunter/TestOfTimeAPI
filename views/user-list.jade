@@ -2,21 +2,23 @@ extends layout
 
 block content
   .container
-    .row.col-md-10.col-md-offset-1
-      h2 User list
+    .row
+      .col-md-10.col-md-offset-1
+        h2 User list
       
-    .row.col-md-4.col-md-offset-1
-      table.table.table-striped.table-hover.table-bordered
-        tbody
-          each user in users          
-            tr
-              td 
-                if user.id == usr.id
-                  a.userlink(href='/users/#{user._id}') #{user.id} (Me)
-                else
-                  a.userlink(href='/users/#{user._id}') #{user.id}
-              td.col-xs-1 
-                if user.role == 'admin'
-                  i(data-toggle='tooltip', title='Admin', data-placement='bottom').fa.fa-star
-                else
-                  i(data-toggle='tooltip', title='Editor', data-placement='bottom').fa.fa-star-o
+    .row
+      .col-md-4.col-md-offset-1
+        table.table.table-striped.table-hover.table-bordered
+          tbody
+            each user in users          
+              tr
+                td 
+                  if user.id == usr.id
+                    a.userlink(href='/users/#{user._id}') #{user.id} (Me)
+                  else
+                    a.userlink(href='/users/#{user._id}') #{user.id}
+                td.col-xs-1 
+                  if user.role == 'admin'
+                    i(data-toggle='tooltip', title='Admin', data-placement='bottom').fa.fa-star
+                  else
+                    i(data-toggle='tooltip', title='Editor', data-placement='bottom').fa.fa-star-o

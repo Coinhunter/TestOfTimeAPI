@@ -26,14 +26,14 @@ html
                 a(href='/categories')
                   i(data-toggle='tooltip', title='Categories', data-placement='bottom').glyphicon.glyphicon-tag
 
+              if locals.user.role == 'admin'
+                li
+                  a(href='/users')
+                    i(data-toggle='tooltip', title='Users', data-placement='bottom').fa.fa-users
 
-              li
-                a(href='/users')
-                  i(data-toggle='tooltip', title='Users', data-placement='bottom').fa.fa-users
-
-              li
-                a(href='/setup')
-                  i(data-toggle='tooltip', title='Setup', data-placement='bottom').fa.fa-cog
+                li
+                  a(href='/setup')
+                    i(data-toggle='tooltip', title='Setup', data-placement='bottom').fa.fa-cog
 
             ul.nav.navbar-nav.navbar-right
               li

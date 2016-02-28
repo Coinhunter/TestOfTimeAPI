@@ -3,31 +3,37 @@ extends layout
 block content
 
   .container
-    .view-header.row.col-md-10.col-md-offset-1
-      h1 Manage Categories
+    .row
+      .col-md-10.col-md-offset-1
+        h1 Manage Categories
 
-    .row.col-md-10.col-md-offset-1
-      if categories.length <= 0
-        .alert.alert-info No categories yet.
-      else
-        .alert.alert-warning.alert-dismissible(role='alert')
-          strong Warning!
-          |  If you delete a category that still has cards in it those cards will be orphaned. You can check if a category has cards in it by clicking it and removing or reassigning those cards to other categories.
+    if categories.length <= 0
+      .row
+        .col-md-10.col-md-offset-1
+          .alert.alert-info No categories yet.
+    else
+      .row
+        .col-md-10.col-md-offset-1        
+          .alert.alert-warning.alert-dismissible(role='alert')
+            strong Warning!
+            |  If you delete a category that still has cards in it those cards will be orphaned. You can check if a category has cards in it by clicking it and removing or reassigning those cards to other categories.
         
-        a.pull-left(href='/category/new')
-          button.btn.btn-success(type='button') Create new category
 
-        table.table.table-hover
-          thead
-            table-hover
-              th.sortable(data-default-direction='1') Category
-              th(data-default-direction='1')
-          tbody
-            each category in categories
-              tr(class= row_class)
-                td
-                  a(href='/cards/category/#{category.category}', data-toggle="tooltip", title='View all #{category.category} cards') #{category.category}
-                td
-                  a.pull-right(href='/category/delete/#{category.category}')
-                    button.btn.btn-danger.btn-xs(type='button')
-                      span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete "#{category.category}"')
+      .row
+        .col-md-4.col-md-offset-1
+          a.userlink(href='/category/new')
+            .padding-vertical-10px
+              button.btn.btn-success.btn-block(type='button') Create new category
+
+      .row
+        .col-md-4.col-md-offset-1
+          table.table.table-hover.table-striped.table-bordered
+            tbody
+              each category in categories
+                tr(class= row_class)
+                  td
+                    a(href='/cards/category/#{category.category}', data-toggle="tooltip", title='View all #{category.category} cards') #{category.category}
+                  td.col-xs-1
+                    a.pull-right(href='/category/delete/#{category.category}')
+                      button.btn.btn-danger.btn-xs(type='button')
+                        span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete "#{category.category}"')

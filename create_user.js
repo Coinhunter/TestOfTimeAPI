@@ -9,10 +9,13 @@ convertParams.convertParamsToUser(
 	id: 'TestOfTimeAdminID',
 	name: 'admin',
 	email: 'testoftime@time.now',
-	password: 'password'
+	role: 'admin',
+	password: 'password',
+	password2: 'password'
 }, function(err, returned_user){
 	if(err){
 		console.log('Something went wrong, %s', err);
+		console.log(err);
 	} else {
 
 		console.log('User returned: %s', returned_user);
@@ -46,6 +49,7 @@ convertParams.convertParamsToUser(
 		"id": "TestOfTimeAdminID2",
 		"name": "admin2",
 		"email": "testoftime2@time.now",
-		"password": "password"
+		"password": "password",
+		"role": "admin"
 	}
 */

@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title #{page_title ? page_title + '| ' : ''} Test of Time
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='/css/testoftime.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css')
+  body
+    .container
+      .row.col-md-10.col-md-offset-1
+        .center-text
+          h2 Welcome #{id}!
+
+          p.lead You now have an account with TestOfTime. Return to the 
+            a(href='/login') login-page
+             | to start using the service.          
+

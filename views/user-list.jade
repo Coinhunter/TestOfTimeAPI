@@ -2,29 +2,21 @@ extends layout
 
 block content
   .container
-    .view-header.row.col-md-10.col-md-offset-1
-      h1 Manage Users
-
-      .alert.alert-warning.alert-dismissible(role='alert')
-        button.close(type='button', data-dismiss='alert', aria-label='Close')
-          span(aria-hidden='true') ×
-        strong Warning!
-        |  Do not delete yourself. You will not be able to log back in.
-
-
     .row.col-md-10.col-md-offset-1
-        table.table.table-hover
-          thead
-            table-hover
-              th.sortable(data-default-direction='1') Username
-              th.sortable(data-default-direction='1') Email
-              th(data-default-direction='1')
-          tbody
-            each user in users
-              tr(class= row_class)
-                td #{user.name}
-                td #{user.email}
-                td
-                  a.pull-right(href='/user/delete/#{user._id}')
-                    button.btn.btn-danger.btn-xs(type='button')
-                      span.glyphicon.glyphicon-remove(aria-hidden='true', data-toggle="tooltip", title='Delete "#{user.name}"')
+      h2 User list
+      
+    .row.col-md-4.col-md-offset-1
+      table.table.table-striped.table-hover.table-bordered
+        tbody
+          each user in users          
+            tr
+              td 
+                if user.id == usr.id
+                  a.userlink(href='/users/#{user._id}') #{user.id} (Me)
+                else
+                  a.userlink(href='/users/#{user._id}') #{user.id}
+              td.col-xs-1 
+                if user.role == 'admin'
+                  i(data-toggle='tooltip', title='Admin', data-placement='bottom').fa.fa-star
+                else
+                  i(data-toggle='tooltip', title='Editor', data-placement='bottom').fa.fa-star-o

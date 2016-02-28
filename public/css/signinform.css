@@ -28,33 +28,7 @@
 	padding-bottom: 0px;	
 }
 
-.input-group {
-	margin-top: 15px;
-	margin-bottom: 15px;
-}
-
-.well-white {
-    background: rgb(255, 255, 255);
-}
-
-.well-grey {
-	background: rgb(249, 249, 249);
-}
-
 .login-well {
 	margin: 0px;
 }
 
-.welltext-paddings {
-	padding: 0px;
-	margin: 0px;
-}
-
-.background-tot-signin {
-	background: rgb(249,249,249);
-	height: 100%;
-}
-
-.robotofont {
-	font-family: 'Open Sans', sans-serif;
-}

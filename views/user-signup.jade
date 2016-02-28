@@ -1,0 +1,57 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/css/signupform.css')
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css')
+  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+
+
+  .background-tot-grey
+    .container.tot-top-padding
+      .row
+        .col-md-4.col-md-offset-4
+          .center-text
+            p.text-m
+              i.fa.fa-history.fa-5x
+            .opensans 
+              h3 Sign up for TestOfTime
+      .row
+        .col-md-4.col-md-offset-4
+          .login.well.well-small.well-white
+            if error
+              .alert.alert-danger.signup-alert(role='alert')
+                .center
+                  if error.msg
+                    p #{error.msg}
+                  else
+                    p Something went wrong! Please try again.
+
+            form.login-form(action='/signup', method='POST', accept-charset='utf-8')
+              
+              .input-group
+                span.input-group-addon
+                  i.glyphicon.glyphicon-user
+                input.form-control(type='text', placeholder='Username', required='required', id='id', name='id', maxlength='255')
+              
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-envelope
+                input.form-control(type='text', placeholder='Email', required='required', id='email', name='email', maxlength='255')
+              
+              .input-group
+                span.input-group-addon
+                  i.glyphicon.glyphicon-lock
+                input.form-control(type='password', placeholder='Password', required='required', id='password', name='password')
+
+              .input-group
+                span.input-group-addon
+                  i.glyphicon.glyphicon-lock
+                input.form-control(type='password', placeholder='Password again', required='required', id='password2', name='password2')
+
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-key
+                input.form-control(type='text', placeholder='User create token', required='required', id='token', name='token')
+
+              .control-group
+                input.btn.btn-success.btn-large.btn-block(type='submit', value='Sign up')

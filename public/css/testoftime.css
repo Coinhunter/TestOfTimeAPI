@@ -61,3 +61,13 @@ a.userlink:hover {
 a.userlink:visited {
 	text-decoration: none;
 }
+
+a.totwhitelink:link {
+	text-decoration: none;
+	color: rgb(255, 255, 255);	
+}
+
+.totlabel-black {
+	margin-right: 2px;
+	background: rgb(40, 40, 40);
+}

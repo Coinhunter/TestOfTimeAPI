@@ -1,12 +1,14 @@
-# Test of Time API
+# Test of Time
 
-## Purpose
+## About the game
 
-TestOfTime is a game where the player is supposed to organize historical events in chronological order.
+Test of Time is a history-game. The idea is that each player has a timeline with a unique random starting year on it. Players take turns drawing cards from a deck. On each card is a question or statement that has a specific year as its' answer. If the player can place the card in the correct position on the timeline he or she gets to draw another card without yielding the turn. If the player is unable to place the card in the correct interval all cards gained since the start of that turn are lost and the next player gets to play. Every time a card has been placed correctly on the timeline the player may choose to end his or her turn and keep all of the cards gained that turn. This way players will accumulate cards over time. The more cards a player gets the harder it will get to place it in the right timeslot. If two cards have the same year as answer the player must be able to pinpoint the exact year.
 
-## Install Instructions
 
-To run this API you have to have Node installed. Compatible with 4.1.0 and up.
+
+## Setup Instructions (OSX)
+
+To run this API you have to have Node installed. This project uses version 4.
 
 	$ npm install
 
@@ -14,28 +16,28 @@ You also have to be running MongoDB locally:
 	
 	$ sudo mongod
 
-In order to make calls to the API basic authentication is required. To create a user with username: `testoftime@time.now` and password: `password` run create_user.js. This means that the headers should include one `Authorization` entry with value `Basic dGVzdG9mdGltZUB0aW1lLm5vdzpwYXNzd29yZA==`. It also needs to have a `Content-Type` header with `application/json` to work. Note: This is only to set up a user with which to play around.
+In order to make calls to the API basic authentication is required. To create an initial user with username: `testoftime@time.now` and password: `password` run create_user.js. To query the API with this username headers should include one `Authorization` entry with value `Basic dGVzdG9mdGltZUB0aW1lLm5vdzpwYXNzd29yZA==`. This will obviously be a different value once your instance has other users, but it's a good starting point. You also need to set a `Content-Type` header with `application/json` for it to work.
 	
 	$ node create_user.js
 
-To populate the database with some initial cards to use:
+To populate the database with some initial cards from terminal:
 
 	$ node card_loader.js
 
-This uses the cards.json file in the res folder. If you have edited the file make sure that the data file is proper json encoded by running through this: http://jsonlint.com/ 
+This uses the cards.json file in the res folder. This feature will likely be removed eventually. If you have edited the file make sure that the data file is proper json encoded. (http://jsonlint.com/)
 
-To set up the database with some initial categories:
+You can also set up some categories.
 
 	$ node category_loader.js
 
-This uses the categories.json file in the res folder. If you have edited the file make sure that the data file is proper json encoded by running through this: http://jsonlint.com/	
-
-To start the server:
-
-	$ node server.js
-
+Uses the categories.json file in the res folder.
 
 ## API Endpoints
+
+To start a server in API mode:
+
+	$ npm run start-api
+
 
 #### GET  [ / ]
 Returns an empty object. Authentication is not required for this. Use this to see if the service is up.
@@ -68,28 +70,7 @@ Returns array of existing users. Example response:
 ]
 ```
 
-#### POST [ /users ]
-Create new user. Example request body (all fields are required).
-```json 
-{
-	"id": "userid",
-	"name": "name of user",
-	"email": "testoftime@time.now",
-	"password": "password"
-}
-```
-
 ### Cards
-
-#### POST [ /cards ]
-Create new card. Sample request body:
-```json 
-{
-	"question": "Columbus reaches the new world - landing on an island in the Bahamas archipelago that he named 'San Salvador'.",
-	"year": 1492,
-	"category": "Exploration"
-}
-```
 
 #### GET  [ /cards ]
 Get a sample of the first 100 cards. Sample response:
@@ -138,16 +119,8 @@ Sample response:
 ]
 ```
 
-#### POST [ /categories ]
-Sample request body:
-```json 
-{
-	"category": "Sports"
-}
-```
-Sample response:
-```json
-{
-	"message": "Successfully inserted Sports"
-}
-```
+## Admin Interface
+
+To start a server in Admin mode:
+
+	$ npm run start-admin

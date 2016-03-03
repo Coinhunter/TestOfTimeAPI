@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-10.col-md-offset-1
+        h1 Create Card
+        form.prevent-enter-submit(action='/cards/new', method='POST')
+
+          .form-group
+            label.sr-only(for='year') Year
+            .input-group.col-md-4
+              .input-group-addon Year
+              input.form-control.input-md(type='text', placeholder='Year', name='year', id='year')
+
+          .form-group
+            label.sr-only(for='question') Question
+            .input-group.col-md-4
+              .input-group-addon Question
+              input.form-control.input-md(name='question', id='question', type='text', placeholder='Question')
+          
+          each language in languages
+            .form-group
+              label.sr-only(for='#{language}') #{language}
+              .input-group.col-md-4
+                .input-group-addon #{language}
+                input.form-control.input-md(name='#{language}', id='#{language}', placeholder='Question in this language')
+
+          p.lead Category
+
+          .form-group
+            .input-group.col-md-4
+              each category in categories
+                .radio
+                  label(for='#{category.category}')
+                    input(type='radio', name='category', id='#{category.category}', value=category.category)
+                    | #{category.category}
+      
+          .form-group
+            .input-group.col-md-4
+              button.btn.btn-success.btn-block(type='submit') Create Card

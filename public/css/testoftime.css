@@ -1,0 +1,63 @@
+html, body {
+	height: 100%;
+}
+
+.robotofont {
+	font-family: 'Lobster', cursive;
+}
+
+.padding-vertical-10px {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.background-tot-grey {
+	background: rgb(249,249,249);
+	height: 100%;
+}
+
+.opensans {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.input-group {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.well-white {
+    background: rgb(255, 255, 255);
+}
+
+.well-grey {
+	background: rgb(249, 249, 249);
+}
+
+.welltext-paddings {
+	padding: 0px;
+	margin: 0px;
+}
+
+.center-text {
+	text-align: center;
+}
+
+.tot-top-padding {
+	padding-top: 50px;
+}
+
+a.userlink:link {
+	text-decoration: none;
+}
+
+a.userlink:active {
+	text-decoration: none;
+}
+
+a.userlink:hover {
+	text-decoration: none;
+}
+
+a.userlink:visited {
+	text-decoration: none;
+}

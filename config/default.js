@@ -1,23 +1,30 @@
 module.exports = {
-
-  // The current environment
-  mode: 'default',
-
   // Server config
-  server: {
+  api: {
     name: 'TestOfTime',
     port: 3000
   },
 
+  admin: {
+    name: 'TestOfTimeAdmin',
+    port: 8080
+  },
+
+  secrets: {
+    cookieSecret: 'thisshouldbehardtoguess'
+  },
+
   // Database options
   mongo: {
-    uri: 'mongodb://localhost/testoftime'
+    uri: 'mongodb://localhost/testoftime',
+    sessionstore: 'mongodb://localhost/testoftime_sessions'
   },
 
   // Logging configuration
   logging: {
     level: 'info'
-  },  
+  },
+  
 
   // Salt string used to obfuscate ids
   // This string should never change

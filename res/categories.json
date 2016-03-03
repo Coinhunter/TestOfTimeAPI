@@ -3,18 +3,21 @@
         "categoryname": "Science and Technology"
     },
     {
-        "categoryname": "Exploration"
+        "categoryname": "Religion"
     },
     {
-        "categoryname": "Arts"
+        "categoryname": "Art"
     },
     {
-        "categoryname": "Social Sciences"
+        "categoryname": "Sport"
     },
     {
-        "categoryname": "Sports"
+        "categoryname": "Politics"
     },
     {
         "categoryname": "Other"
+    },
+    {
+        "categoryname": "Entertainment"
     }
 ]

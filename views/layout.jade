@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    title #{page_title ? page_title + '| ' : ''} Test of Time
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='/css/testoftime.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css')
+    block stylesheets
+  body
+    if locals.user
+      nav.navbar.navbar-default.navbar-static-top(role='navigation')
+        .container
+          .row
+            .col-md-10.col-md-offset-1
+              .navbar-header
+                a.navbar-brand(href='/')
+                  p.robotofont Test of Time Admin
+
+              ul.nav.navbar-nav
+                li
+                  a(href='/cards')
+                    i(data-toggle='tooltip', title='Cards', data-placement='bottom').glyphicon.glyphicon-envelope
+
+                li
+                  a(href='/categories')
+                    i(data-toggle='tooltip', title='Categories', data-placement='bottom').glyphicon.glyphicon-tag
+
+                if locals.user.role == 'admin'
+                  li
+                    a(href='/users')
+                      i(data-toggle='tooltip', title='Users', data-placement='bottom').fa.fa-users
+
+                  li
+                    a(href='/setup')
+                      i(data-toggle='tooltip', title='Setup', data-placement='bottom').fa.fa-cog
+
+              ul.nav.navbar-nav.navbar-right
+                li
+                  a(href='/users/#{user._id}')
+                    i(data-toggle='tooltip', title='View profile', data-placement='bottom').fa.fa-user
+                li
+                  a(href='/logout')
+                    i(data-toggle='tooltip', title='Logout', data-placement='bottom').fa.fa-sign-out
+
+    block content
+
+
+    script(src='https://code.jquery.com/jquery-2.0.3.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    block scripts
+    script(src='/js/admin.js')

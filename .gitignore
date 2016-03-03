@@ -7,6 +7,9 @@ lib-cov
 *.pid
 *.gz
 
+
+.DS_Store
+
 pids
 logs
 results
@@ -22,3 +25,9 @@ node_modules
 coverage
 
 /config/runtime.json
+
+/.DS_Store
+
+
+/res/cards/
+/logs/

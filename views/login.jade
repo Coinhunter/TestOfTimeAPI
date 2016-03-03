@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/css/signinform.css')
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css')
+  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+  .background-tot-grey            
+      #login.container 
+        .row-fluid
+          .center
+            p.text-m
+              i.fa.fa-history.fa-5x
+            .opensans 
+              h3 Sign in to TestOfTime
+          .span12
+            .login.well.well-small.well-white
+              if loginerror
+                .alert.alert-danger.login-alert(role='alert')
+                  .center
+                    p Incorrect Email or Password.
+
+              form.login-form(action='/login', method='POST', accept-charset='utf-8')
+                
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-user
+                  input.form-control(type='text', placeholder='Email', required='required', id='email', name='email', maxlength='255')
+                
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-lock
+                  input.form-control(type='password', placeholder='Password', required='required', id='password', name='password')
+
+                .control-group
+                  input.btn.btn-success.btn-large.btn-block(type='submit', value='Sign in')
+          .span12
+            .login.well.well-small.login-well.well-grey
+              .center
+                p.welltext-paddings New to TestOfTime? 
+                  a(href='/signup') Create an account.

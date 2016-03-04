@@ -7,54 +7,60 @@ block content
         // user : the user we are editing      
         // usr  : the usr logged in
 
-        h2 User profile
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title User profile
+          .panel-body
+            form.prevent-enter-submit(action='/user/edit/#{profuser._id}', method='POST')
+              
+              .form-group
+                label.sr-only(for='username') Username
+                .input-group.col-md-4
+                  .input-group-addon Username
+                  input.form-control.input-md(type='text', id='username', name='username', value='#{profuser.id}' disabled)
 
-        form.prevent-enter-submit(action='/user/edit/#{profuser._id}', method='POST')
-          
-          .form-group
-            label.sr-only(for='username') Username
-            .input-group.col-md-4
-              .input-group-addon Username
-              input.form-control.input-md(type='text', id='username', name='username', value='#{profuser.id}' disabled)
+              .form-group
+                label.sr-only(for='email') 
+                .input-group.col-md-4
+                  .input-group-addon Email
+                  input.form-control.input-md(type='text', id='email', name='email', value='#{profuser.email}' disabled)
 
-          .form-group
-            label.sr-only(for='email') 
-            .input-group.col-md-4
-              .input-group-addon Email
-              input.form-control.input-md(type='text', id='email', name='email', value='#{profuser.email}' disabled)
+              .form-group
+                .radio
+                  if usr.role == 'admin'
+                    label(for='role-admin')
+                      input(type='radio', name='role', id='role-admin', value='admin', checked=(profuser.role.valueOf() == 'admin'))
+                      | Admin
+                  else
+                    label(for='role-admin')
+                      input(type='radio', name='role', id='role-admin', value='admin', checked=(profuser.role.valueOf() == 'admin'), disabled)
+                      | Admin                  
+                .radio
+                  if usr.role == 'admin'
+                    label(for='role-editor')
+                      input(type='radio', name='role', id='role-editor', value='editor', checked=(profuser.role.valueOf() == 'editor'))
+                      | Editor
+                  else
+                    label.disabled(for='role-editor')
+                      input(type='radio', name='role', id='role-editor', value='editor', checked=(profuser.role.valueOf() == 'editor'), disabled)
+                      | Editor
 
-          .form-group
-            .radio
+
               if usr.role == 'admin'
-                label(for='role-admin')
-                  input(type='radio', name='role', id='role-admin', value='admin', checked=(profuser.role.valueOf() == 'admin'))
-                  | Admin
-              else
-                label(for='role-admin')
-                  input(type='radio', name='role', id='role-admin', value='admin', checked=(profuser.role.valueOf() == 'admin'), disabled)
-                  | Admin                  
-            .radio
-              if usr.role == 'admin'
-                label(for='role-editor')
-                  input(type='radio', name='role', id='role-editor', value='editor', checked=(profuser.role.valueOf() == 'editor'))
-                  | Editor
-              else
-                label.disabled(for='role-editor')
-                  input(type='radio', name='role', id='role-editor', value='editor', checked=(profuser.role.valueOf() == 'editor'), disabled)
-                  | Editor
+                .form-group
+                  .input-group.col-md-4
+                    button.btn.btn-success.btn-block(type='submit') Save
 
-
-          if usr.role == 'admin'
-            .form-group
-              .input-group.col-md-4
-                button.btn.btn-success.btn-block(type='submit') Save
-
+    //|| usr.id == profuser.id                
     if usr.role == 'admin'
       .row
         .col-md-10.col-md-offset-1
-          .input-group.col-md-4
-            if profuser.id == usr.id
-              button.btn.btn-danger.btn-block.disabled(type='button') Delete #{profuser.id}
-            else
-              a.userlink(href='/user/delete/#{profuser._id}')
-                button.btn.btn-danger.btn-block(type='button') Delete #{profuser.id}
+          .panel.panel-danger
+            .panel-heading
+              h3.panel-title Delete account
+            .panel-body
+              p.small Once you delete your account, there is no going back. Please be certain.
+              .input-group.col-md-4
+                a.userlink(href='/user/delete/#{profuser._id}')
+                  button.btn.btn-default(type='button') 
+                    strong.warning-text Delete account

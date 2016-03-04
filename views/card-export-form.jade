@@ -4,46 +4,60 @@ block content
   if err === false
     .container
       .row
-        .col-md-10.col-md-offset-1
-          h1 Export Cards
-          p.lead You can export cards to a resource file. The file will be saved on the server and show up in the list below.
-
-      if files.length <= 0
-        .row
-          .col-md-10.col-md-offset-1
-            .col-lg-4.alert.alert-info No card-files saved yet.
-      else
-        each file in files
-          .row
-            .col-md-10.col-md-offset-1
-              .padding-vertical-10px
-                a(href='/cards/deletefile/#{file}')
-                  button.btn.btn-default.col-lg-4 Remove '#{file}'
-
-      .row
-        .col-md-10.col-md-offset-1
-          .padding-vertical-10px
-            p.lead Choose a category of cards to export, or "All categories" to export the entire deck.
-            form.prevent-enter-submit(action='/cards/export', method='POST')
-              .form-group
-                .radio
-                    label(for='category-all')
-                      input(type='radio', name='category', id='category-all', value='all', checked=true)
-                      | All categories
-
-                each cat in categories
+        .col-md-5.col-md-offset-1
+          .panel.panel-default
+            .panel-heading
+              h3.panel-title Export Cards
+            .panel-body
+              p You can export cards to a resource file. The file will be saved on the server and show up in the list below. Choose a category of cards to export, or "All categories" to export the entire deck.
+              form.prevent-enter-submit(action='/cards/export', method='POST')
+                .form-group
                   .radio
-                    label(for='category-#{cat.category}')
-                      input(type='radio', name='category', id='category-#{cat.category}', value=cat.category)
-                      | #{cat.category}
+                      label(for='category-all')
+                        input(type='radio', name='category', id='category-all', value='all', checked=true)
+                        | All categories
 
-              .input-group.col-lg-4
-                span.input-group-addon
-                  i.fa.fa-file
-                input.form-control(type='text', placeholder='Filename', required='required', id='filename', name='filename', maxlength='255')  
+                  each cat in categories
+                    .radio
+                      label(for='category-#{cat.category}')
+                        input(type='radio', name='category', id='category-#{cat.category}', value=cat.category)
+                        | #{cat.category}
 
-              .control-group.padding-vertical-10px
-                button.btn.btn-success.col-lg-4(type='submit') Create File
+                .input-group.col-lg-6
+                  span.input-group-addon
+                    i.fa.fa-file
+                  input.form-control(type='text', placeholder='Filename', required='required', id='filename', name='filename', maxlength='255')  
+
+                .control-group.padding-vertical-10px
+                  button.btn.btn-success.col-lg-6(type='submit') Create File
+
+        .col-md-5
+          .panel.panel-default
+            .panel-heading
+              h3.panel-title Existing resource files
+            .panel-body
+              if files.length <= 0
+                .alert.alert-info No card-files saved yet.
+              else
+                each file in files
+                  .padding-bottom-10px
+                    a.userlink(href='/cards/deletefile/#{file}')
+                      button.btn.btn-default.btn-block Remove '#{file}'
+          
+          .panel.panel-default
+            .panel-heading
+              h3.panel-title Import Cards
+            .panel-body
+              p You can import cards from a resource file. Click the file to import cards from it.
+              if files.length <= 0
+                .alert.alert-info No card-files saved yet.
+              else
+                each file in files
+                  .padding-bottom-10px
+                    a.userlink(href='/cards/import/#{file}')
+                      button.btn.btn-default.btn-block Load cards from '#{file}'
+
+
   else 
     .container
       .row

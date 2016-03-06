@@ -9,7 +9,7 @@ block content
           .alert.alert-info No cards yet.
     else
       .row
-        .col-md-10.col-md-offset-1    
+        .col-md-10.col-md-offset-1
           .panel.panel-default
             .panel-heading
               h3.panel-title Cards
@@ -23,7 +23,7 @@ block content
                 tbody
                   each card in cards
                     tr(class= row_class)
-                      td #{card.question}
+                      td #{card.languages.en}
                       td #{card.year}
                       td 
                         a(href='/cards/category/#{card.category}', data-toggle="tooltip", title='View all #{card.category} cards') #{card.category}

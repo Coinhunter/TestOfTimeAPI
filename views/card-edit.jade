@@ -9,13 +9,6 @@ block content
             .panel-title Edit Card
           .panel-body
             form.prevent-enter-submit(action='/cards/edit/#{card._id}', method='POST')
-              
-              .form-group
-                label.sr-only(for='question') Question
-                .input-group
-                  .input-group-addon Question
-                  input.form-control.input-md(type='text', id='question', name='question', value='#{card.question}')
-
               .form-group
                 label.sr-only(for='year') Year
                 .input-group

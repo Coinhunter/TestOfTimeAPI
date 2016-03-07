@@ -18,11 +18,11 @@ block content
       .row
         .col-md-4.col-md-offset-4
           .login.well.well-small.well-white
-            if error
+            if err
               .alert.alert-danger.signup-alert(role='alert')
                 .center
-                  if error.msg
-                    p #{error.msg}
+                  if err
+                    p #{err}
                   else
                     p Something went wrong! Please try again.
 

@@ -8,6 +8,10 @@ block content
           .panel-heading
             .panel-title Edit Card
           .panel-body
+            if err
+              .alert.alert-danger
+                p #{err}
+
             form.prevent-enter-submit(action='/cards/edit/#{card._id}', method='POST')
               .form-group
                 label.sr-only(for='year') Year

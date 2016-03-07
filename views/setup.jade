@@ -3,44 +3,33 @@ extends layout
 block content
   .container
     .row
-      .col-md-10.col-md-offset-1
-        h2 Import from resource file
-        p.lead The repository comes with resource files of cards and categories that you can initially populate the database with. You can pre-load cards and categories from these server-local resource files if you want. To do so, use the buttons below. If there is already a card with the same ID in the database that card will not be loaded from file.
-        
-    .row
-      .col-md-4.col-md-offset-1
-        a.userlink(href='/cards/import') 
-          button.btn-block(type="button" class="btn btn-success") Load cards resource file.
+      .col-md-5.col-md-offset-1
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Import/Export from/to resource file
+          .panel-body
+            p The repository comes with resource files of cards and categories that you can initially populate the database with. You can pre-load cards and categories from these server-local resource files if you want. To do so, use the buttons below. If there is already a card with the same ID in the database that card will not be loaded from file.
 
-    .row
-      .col-md-10.col-md-offset-1
-        h2 Generate resource file
-        p.lead You can also export the cards you have created to a resource file.
+            a.userlink(href='/cards/export') 
+              button.btn-block(type="button" class="btn btn-success") Export/Import cards from resource file.
 
-    .row
-      .col-md-4.col-md-offset-1
-        a.userlink(href='/cards/export')
-          button.btn-block(type="button" class="btn btn-success") Export cards to resource file.
+      .col-md-5
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Account creation tokens
+          .panel-body
+            p List of current account tokens. Tokens are necessary to create a new user. Create one and share it with whomever is attempting to sign up. Once it's been used it will be removed. Tokens are valid for 1 hour.
+            a.userlink(href='/setup/usertoken')
+              button.btn-block(type="button" class="btn btn-success") Create new user token.
 
-    .row
-      .col-md-10.col-md-offset-1
-        h2 Account creation tokens
-
-    .row
-      .col-md-4.col-md-offset-1
-        a.userlink(href='/setup/usertoken')
-          button.btn-block(type="button" class="btn btn-success") Create new create user token.
-        p.lead List of current account tokens.
-
-
-    if tokens.length > 0
-      .row
-        .col-md-4.col-md-offset-1
-          each token in tokens
-            .center-text
-              h2
-                span.label.label-primary #{token.token}
-    else
-      .row
-        .col-md-4.col-md-offset-1
-          p No tokens
+            if tokens.length > 0
+              each token in tokens
+                .padding-top-10px
+                  .well.well-white.token-well-margin
+                    p.token-text 
+                      strong #{token.token}
+                        a.pull-right.totblacklink(href='/setup/deletetoken/#{token._id}')
+                          i(data-toggle='tooltip', title='Delete token', data-placement='bottom').fa.fa-remove
+            else
+              .padding-vertical-10px
+                .alert.alert-info(role="alert") No available user creation tokens. Why not create one?

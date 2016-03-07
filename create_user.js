@@ -6,8 +6,7 @@ var convertParams = require('./lib/handlers/user-create.js'),
 
 convertParams.convertParamsToUser(
 {
-	id: 'TestOfTimeAdminID',
-	name: 'admin',
+	id: 'TestOfTime',
 	email: 'testoftime@time.now',
 	role: 'admin',
 	password: 'password',

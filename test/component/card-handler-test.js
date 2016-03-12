@@ -60,20 +60,22 @@ describe('Card Handler Component Test', function () {
     xit('should have property category as nonempty string');
     xit('should have property created_at as date');
     xit('should have property updated_at as date');
+
     it('should find a card by _id', function (done) {
       var year = 1900,
           category = 'Other',
-          question = 'The year 1900';
+          languages = { en: 'The year 1900' };
 
       card_handler.create(null, {
         year: year,
         category: category,
-        question: question
+        languages: languages
       }, function (err, status, card) {
         should.not.exist(err);
         should.exist(card);
         card.should.have.property('year', year);
-        card.should.have.property('question', question);
+        card.should.have.property('languages');
+        card.languages.should.have.property('en', 'The year 1900');
         card.should.have.property('category', category);
         card.should.have.property('created_at');
         card.should.have.property('updated_at');

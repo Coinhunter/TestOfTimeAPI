@@ -27,7 +27,7 @@ describe('Card Create Component Test', function () {
 
   describe('Creating card', function () {
 
-    it('should convert parameters to a card', function (done) {
+    it('should convert parameters to a card with language object', function (done) {
       var year = 1900,
         category = 'Other',
         languages = { en: 'The year 1900' };
@@ -41,23 +41,152 @@ describe('Card Create Component Test', function () {
       cardCreate.convertParamsToCard(params, function (err, card) {
         should.not.exist(err);
         should.exist(card);
-        /*
         card.should.have.property('year', year);
         card.should.have.property('category', category);
-        card.should.have.property('languages', languages);
         card.should.have.property('created_at');
         card.should.have.property('updated_at');
-        */
+        should.exist(card.languages);
+        card.languages.should.have.property('en', 'The year 1900');
+        card.languages.should.not.have.property('se');
         done();
       });
     });
 
-    xit('should not create a card if year is not a number');
-    xit('should not create a card if category is not a string');
-    xit('should not create a card if category is a zero-length string');
-    xit('should not create a card if question is not a string');
-    xit('should not create a card if question is a zero-length string');
-    xit('should clean out excess parameters');
+    it('should convert parameters to a card with se, en properties', function (done) {
+      var year = 1900,
+        category = 'Other';
+
+      var params = {
+        year: year,
+        category: category,
+        en: 'The year 1900'
+      };
+
+      cardCreate.convertParamsToCard(params, function (err, card) {
+        should.not.exist(err);
+        should.exist(card);
+        card.should.have.property('year', year);
+        card.should.have.property('category', category);
+        card.should.have.property('created_at');
+        card.should.have.property('updated_at');
+        should.exist(card.languages);
+        card.languages.should.have.property('en', 'The year 1900');
+        card.languages.should.not.have.property('se');
+        done();
+      });
+    });
+
+    it('should not create a card if year is not a number', function (done) {
+      var year = 'NaN-String',
+          category = 'Other',
+          params = {
+            year: year,
+            category: category,
+            en: 'The year 1900'
+          };
+      
+      cardCreate.convertParamsToCard(params, function (err, card) {
+        should.exist(err);
+        should.equal(err, 'Year must be a number.');
+        should.not.exist(card);
+        done();
+      });
+    });
+
+    it('should not create a card if category is not a string', function (done) {
+      var year = 1900,
+          category = {},
+          params = {
+            year: year,
+            category: category,
+            en: 'The year 1900'
+          };
+      
+      cardCreate.convertParamsToCard(params, function (err, card) {
+        should.exist(err);
+        should.equal(err, 'Category must be non-empty string.');
+        should.not.exist(card);
+        done();
+      });
+    });
+
+    it('should not create a card if category is a zero-length string', function (done) {
+      var year = 1900,
+          category = '',
+          params = {
+            year: year,
+            category: category,
+            en: 'The year 1900'
+          };
+      
+      cardCreate.convertParamsToCard(params, function (err, card) {
+        should.exist(err);
+        should.equal(err, 'Category must be non-empty string.');
+        should.not.exist(card);
+        done();
+      });
+    });
+
+    it('should not create a card if en/se is not a string', function (done) {
+      var year = 1900,
+          category = '',
+          params = {
+            year: year,
+            category: category,
+            en: 42,
+            se: 'Valid question'
+          };
+      
+      cardCreate.convertParamsToCard(params, function (err, card) {
+        should.exist(err);
+        should.equal(err, 'Must have a question in either swedish or english.');
+        should.not.exist(card);
+        done();
+      });
+    });
+
+    it('should not create a card if se/en is a zero-length string', function (done) {
+      var year = 1900,
+          category = '',
+          params = {
+            year: year,
+            category: category,
+            en: ''
+          };
+      
+      cardCreate.convertParamsToCard(params, function (err, card) {
+        should.exist(err);
+        should.equal(err, 'Must have a question in either swedish or english.');
+        should.not.exist(card);
+        done();
+      });
+    });    
+
+    it('should clean out excess parameters', function (done) {
+      var year = 1900,
+          category = 'Other',
+          params = {
+            year: year,
+            category: category,
+            sv: 'Question',
+            extra: {},
+            foo: 'bar'
+          };
+      
+      cardCreate.convertParamsToCard(params, function (err, card) {
+        should.not.exist(err);
+        should.exist(card);
+        card.should.have.property('year', year);
+        card.should.have.property('category', category);
+        card.should.have.property('created_at');
+        card.should.have.property('updated_at');
+        should.exist(card.languages);
+        card.languages.should.have.property('sv', 'Question');
+        card.should.not.have.property('extra');
+        card.should.not.have.property('foo');
+        done();
+      });      
+    });
 
   });
 
